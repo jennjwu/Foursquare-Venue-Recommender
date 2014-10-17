@@ -24,5 +24,5 @@ Team Members
 * Jennifer Wu <jenn.j.wu@gmail.com>
 
 License
-----
+-----------
 MIT
