@@ -12,17 +12,18 @@
 
 	<meta charset="UTF-8" />
 	<title>Recommender</title>
-	<link href="" rel="stylesheet" type="text/css" />
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" />
    </head>
 
 
    <body>
+	<div class='container'>
 	<header>
-	    <h1>Venue Recommender</h1>
+	    <h1 class='text-center'>Venue Recommender</h1>
 	</header>
 
-	<p>Pick a Criteria!</p>
-	<div>
+	<p class='text-center'>Pick a Criteria!</p>
+	
 		<?php
 		//database settings
 		$host="localhost";
@@ -75,43 +76,47 @@
 			}
 		}
 		?>
-
-		<form method='POST' name='venueform' action='sorter.php'>
-			<p><input type='radio' name='venue_selection' value='popular' 
-				<?php echo $select1; ?>
-				>Popular
-			</p>
-			<p><input type='radio' name='venue_selection' value='special_event'
-				<?php echo $select2; ?>
-				>Special Events
-			</p>
-			<p><input type='radio' name='venue_selection' value='mingle'
-				<?php echo $select3; ?>
-				>Mingle
-			</p>
-			<p><input type='radio' name='venue_selection' value='economical'
-				<?php echo $select4; ?>
-				>Economical
-			</p>
-			<p><input type='radio' name='venue_selection' value='study'
-				<?php echo $select5; ?>
-				>Study
-			</p>
-			<p><input type='radio' name='venue_selection' value='large_group'
-				<?php echo $select6; ?>
-				>Large Group
-			</p>
-			<p><input type='radio' name='venue_selection' value='random'
-				<?php echo $select7; ?>
-				>Random
-			</p>
-			<p><input type='radio' name='venue_selection' value='all'
-				<?php echo $select8; ?>
-				>All
-			</p>
-			<input type='submit' value='Recommend!'><br>
-		</form>
-
+		
+			<form class='form text-center' method='POST' name='venueform' action='sorter.php'>
+				<div class='btn-group' data-toggle='buttons'>
+					<label class='btn btn-primary'><input type='radio' name='venue_selection' value='popular' 
+					<?php echo $select1; ?>
+					>Popular
+					</label>
+					<label class='btn btn-primary'><input type='radio' name='venue_selection' value='special_event'
+					<?php echo $select2; ?>
+					>Special Events
+					</label>
+					<label class='btn btn-primary'><input type='radio' name='venue_selection' value='mingle'
+					<?php echo $select3; ?>
+					>Mingle
+					</label>
+					<label class='btn btn-primary'><input type='radio' name='venue_selection' value='economical'
+					<?php echo $select4; ?>
+					>Economical
+					</label>
+					<label class='btn btn-primary'><input type='radio' name='venue_selection' value='study'
+					<?php echo $select5; ?>
+					>Study
+					</label>
+					<label class='btn btn-primary'><input type='radio' name='venue_selection' value='large_group'
+					<?php echo $select6; ?>
+					>Large Group
+					</label>
+					<label class='btn btn-primary'><input type='radio' name='venue_selection' value='random'
+					<?php echo $select7; ?>
+					>Random
+					</label>
+					<label class='btn btn-primary'><input type='radio' name='venue_selection' value='all'
+					<?php echo $select8; ?>
+					>All
+					</label>
+				</div>
+				<br><br>
+				<input type='submit' class='btn btn-success btn-large' value='Recommend!'>
+			</form>
+		
+		<div id='results'>
 		<?php
 		//function to get queries based on criteria
 		function get_query($case) {
@@ -178,7 +183,7 @@
 			$num_rows = $results->num_rows;
 			
 			if ($num_rows > 0) {
-				echo "<table>";
+				echo "<table class='table table-hover'>";
 				echo "<thead>
 						<tr>
 							<th>Venue ID</th>
@@ -252,16 +257,15 @@
 			}//end switch
 		}//end if isset
 		else {
-			echo "<p><b>Please select an outing type!</b></p>";
+			echo "<br><br><p class='text-center'><b>Please select an outing type!</b></p>";
 		}
 
 		?>
-		<br>
-		<br>
+		</div>
 	</div>
 	</body>
 
-	<footer>
+	<footer class='col-md-12 text-center'>
 		<hr>
 		&copy; Team 9, CMPE 226, Fall 2014, SJSU<br>
 		&copy; Foursquare Data obtained through the free API
