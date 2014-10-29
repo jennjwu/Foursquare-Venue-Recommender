@@ -24,7 +24,6 @@
 	<p>Pick a Criteria!</p>
 	<div>
 		<?php
-
 		//database settings
 		$host="localhost";
 		$username="root";
@@ -37,424 +36,224 @@
 			echo "Failed to connect to MySQL DB: " . mysqli_connect_error();
 		}
 
-		$string = file_get_contents("test.json");
-		//echo $string;
-		$json_arr = json_decode($string);
-		//var_dump($json_arr);
-		//echo "<br/><br/>";
-
-		/*For random picker logic*/
-		$num_ent = sizeof($json_arr);
-		$numbers = range(1,$num_ent);
-		shuffle($numbers);
-		$numbers = array_slice($numbers,0,5); //pick five
-
-		//criteria arrays
-		$popular = array();
-		$special = array();
-		$mingle = array();
-		$economical = array();
-		$study = array();
-		$large_group = array();
-		$random = array();
-
-		//check if outing type selected
+		//set selection of form
+		$select1 = '';
+		$select2 = '';
+		$select3 = '';
+		$select4 = '';
+		$select5 = '';
+		$select6 = '';
+		$select7 = '';
+		$select8 = '';
 		if (isset($_POST['venue_selection'])) {
 			$post_venue_selection = $_POST['venue_selection'];
 			switch($post_venue_selection) {
 				case 'popular':
-					echo "<form method='POST' name='venueform' action='sorter.php'> 
-					<p>
-					<input type='radio' name='venue_selection' value='popular' checked='checked'>Popular
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='special_event'>Special Events
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='mingle'>Mingle
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='economical'>Economical
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='study'>Study
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='large_group'>Large Group
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='random'>Random
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='all'>All
-					</p>
-					<input type='submit' value='Recommend!'><br>
-					</form>";
+					$select1 = "checked='checked'";
 					break;
 				case 'special_event':
-					echo "<form method='POST' name='venueform' action='sorter.php'> 
-					<p>
-					<input type='radio' name='venue_selection' value='popular'>Popular
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='special_event' checked='checked'>Special Events
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='mingle'>Mingle
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='economical'>Economical
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='study'>Study
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='large_group'>Large Group
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='random'>Random
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='all'>All
-					</p>
-					<input type='submit' value='Recommend!'><br>
-					</form>";
+					$select2 = "checked='checked'";
 					break;
 				case 'mingle':
-					echo "<form method='POST' name='venueform' action='sorter.php'> 
-					<p>
-					<input type='radio' name='venue_selection' value='popular'>Popular
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='special_event'>Special Events
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='mingle' checked='checked'>Mingle
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='economical'>Economical
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='study'>Study
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='large_group'>Large Group
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='random'>Random
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='all'>All
-					</p>
-					<input type='submit' value='Recommend!'><br>
-					</form>";
+					$select3 = "checked='checked'";
 					break;
 				case 'economical':
-					echo "<form method='POST' name='venueform' action='sorter.php'> 
-					<p>
-					<input type='radio' name='venue_selection' value='popular'>Popular
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='special_event'>Special Events
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='mingle'>Mingle
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='economical' checked='checked'>Economical
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='study'>Study
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='large_group'>Large Group
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='random'>Random
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='all'>All
-					</p>
-					<input type='submit' value='Recommend!'><br>
-					</form>";
+					$select4 = "checked='checked'";
 					break;
 				case 'study':
-					echo "<form method='POST' name='venueform' action='sorter.php'> 
-					<p>
-					<input type='radio' name='venue_selection' value='popular'>Popular
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='special_event'>Special Events
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='mingle'>Mingle
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='economical'>Economical
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='study' checked='checked'>Study
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='large_group'>Large Group
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='random'>Random
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='all'>All
-					</p>
-					<input type='submit' value='Recommend!'><br>
-					</form>";
+					$select5 = "checked='checked'";
 					break;
 				case 'large_group':
-					echo "<form method='POST' name='venueform' action='sorter.php'> 
-					<p>
-					<input type='radio' name='venue_selection' value='popular'>Popular
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='special_event'>Special Events
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='mingle'>Mingle
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='economical'>Economical
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='study'>Study
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='large_group' checked='checked'>Large Group
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='random'>Random
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='all'>All
-					</p>
-					<input type='submit' value='Recommend!'><br>
-					</form>";
+					$select6 = "checked='checked'";
 					break;
 				case 'random':
-					echo "<form method='POST' name='venueform' action='sorter.php'> 
-					<p>
-					<input type='radio' name='venue_selection' value='popular'>Popular
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='special_event'>Special Events
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='mingle'>Mingle
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='economical'>Economical
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='study'>Study
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='large_group'>Large Group
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='random' checked='checked'>Random
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='all'>All
-					</p>
-					<input type='submit' value='Recommend!'><br>
-					</form>";
+					$select7 = "checked='checked'";
 					break;
 				case 'all':
-					echo "<form method='POST' name='venueform' action='sorter.php'> 
-					<p>
-					<input type='radio' name='venue_selection' value='popular'>Popular
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='special_event'>Special Events
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='mingle'>Mingle
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='economical'>Economical
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='study'>Study
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='large_group'>Large Group
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='random'>Random
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='all' checked='checked'>All
-					</p>
-					<input type='submit' value='Recommend!'><br>
-					</form>";
+					$select8 = "checked='checked'";
 					break;
 			}
 		}
-		else {
-			$post_venue_selection = null;
-			echo "<form method='POST' name='venueform' action='sorter.php'> 
-					<p>
-					<input type='radio' name='venue_selection' value='popular'>Popular
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='special_event'>Special Events
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='mingle'>Mingle
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='economical'>Economical
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='study'>Study
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='large_group'>Large Group
-					</p>
-					<p>
-					<input type='radio' name='venue_selection' value='random'>Random
-					</p>
-					<input type='radio' name='venue_selection' value='all'>All
-					</p>
-					<input type='submit' value='Recommend!'><br>
-					</form>";
-		}
-		//echo "Post_ID is: ". $post_venue_selection;
+		?>
 
-		//run through criteria for all entries
-		foreach($json_arr as $data) {
-			/*Criteria 1: Popular */
-			if ( ($data->Rating > 7) && ($data->Likes > 50)) {
-				//echo "popular: " . $data->Name . "<br/>";
-				array_push($popular, $data->Venue_ID);
-			}
+		<form method='POST' name='venueform' action='sorter.php'>
+			<p><input type='radio' name='venue_selection' value='popular' 
+				<?php echo $select1; ?>
+				>Popular
+			</p>
+			<p><input type='radio' name='venue_selection' value='special_event'
+				<?php echo $select2; ?>
+				>Special Events
+			</p>
+			<p><input type='radio' name='venue_selection' value='mingle'
+				<?php echo $select3; ?>
+				>Mingle
+			</p>
+			<p><input type='radio' name='venue_selection' value='economical'
+				<?php echo $select4; ?>
+				>Economical
+			</p>
+			<p><input type='radio' name='venue_selection' value='study'
+				<?php echo $select5; ?>
+				>Study
+			</p>
+			<p><input type='radio' name='venue_selection' value='large_group'
+				<?php echo $select6; ?>
+				>Large Group
+			</p>
+			<p><input type='radio' name='venue_selection' value='random'
+				<?php echo $select7; ?>
+				>Random
+			</p>
+			<p><input type='radio' name='venue_selection' value='all'
+				<?php echo $select8; ?>
+				>All
+			</p>
+			<input type='submit' value='Recommend!'><br>
+		</form>
 
-			/*Criteria 2: Special Event */
-			if ( ($data->Reservations == 'Y') && $data->Events_Count == 0) {
-				//echo "special: " . $data->Name . "<br/>";
-				array_push($special, $data->Venue_ID);
-			}
+		<?php
+		//function to get queries based on criteria
+		function get_query($case) {
+			//database settings
+			$host="localhost";
+			$username="root";
+			$password="root";
+			$database="FS_Recommender";
+			//connect to database
+			$con =mysqli_connect($host,$username,$password,$database);
 
-			/*Criteria 3: Mingle*/
-			if ( ($data->Alcohol == 'Y') || (strpos($data->Menus,'Happy Hour') !== false)
-					|| (strpos($data->Venue_Type,'Bar') !== false) ) {
-				//echo "mingle: " . $data->Name . "<br/>";
-				array_push($mingle, $data->Venue_ID);
-			}
+			switch($case) {
+				case 'popular':
+					$sql = "SELECT * FROM Venue natural join Amenities where rating > 7 and likes > 50;";
+					echo "<p>Popular</p>";
+					break;
+				case 'special_event':
+					$sql = "SELECT * FROM Venue natural join Amenities where reservations = 'Y' and events_count = 0;";
+					echo "<p>Special Event</p>";
+					break;
+				case 'mingle':
+					$sql = "SELECT * FROM Venue natural join Amenities where alcohol='Y' or menus like '%Happy Hour%' or Venue_type like '%Bar%';";
+					echo "<p>Mingle</p>";
+					break;
+				case 'economical':
+					$sql = "SELECT * FROM Venue natural join Amenities where price='$';";
+					echo "<p>Economical</p>";
+					break;
+				case 'study':
+					$sql = "SELECT * FROM Venue natural join Amenities where (venue_type like '%Coffee%' or venue_type like '%Cafe%') and wifi = 'Y';";
+					echo "<p>Study</p>";
+					break;
+				case 'large_group':
+					$sql = "SELECT * FROM Venue natural join Amenities where reservations = 'Y' or venue_type like '%Restaurant%';";
+					echo "<p>Large Group</p>";
+					break;
+				case 'random':
+					echo "<p>Random</p>";
+					/*For random picker logic*/
+					$sql1 = "SELECT Venue_ID from Venue"; //select all venue IDs in db
+					$results1 = mysqli_query($con, $sql1);
+					$num_ent = $results1->num_rows; //determine how many IDs there are
+					$numbers = range(1,$num_ent);
+					shuffle($numbers);
 
-			/*Criteria 4: Economical*/
-			if ( $data->Price == '$') {
-				//echo "cheap: ". $data->Name . "<br/>";
-				array_push($economical, $data->Venue_ID);
-			}
+					$numbers = array_slice($numbers,0,5); //pick five
 
-			/*Criteria 5: Study*/
-			if ( ((strpos($data->Venue_Type,'Coffee') !== false) 
-					|| (strpos($data->Venue_Type,'Cafe') !== false)) 
-					&& ($data->Wifi == 'Y')) {
-				//echo "study: " . $data->Name . "<br/>";
-				array_push($study, $data->Venue_ID);
-			}
-			/*Criteria 6: Large Group*/
-			if ( ($data->Reservations == 'Y') || (strpos($data->Venue_Type,'Restaurant') != false) ) {
-				//echo "large group: $data->Name <br/>";
-				array_push($large_group, $data->Venue_ID);
-			}
-
-			/*Criteria 7: Random*/
-			foreach($numbers as $rand_num) {
-				//echo $rand_num . "<br/>";
-				if (substr((string)$data->Venue_ID,2,2) == $rand_num) {
-					//echo "Match - Num: " . $rand_num . " " . $data->Venue_ID . "<br/>";
-					array_push($random, $data->Venue_ID);
-				}
-			}
-
-		}
-
-		//determine which list to show based on selection
-		switch ($post_venue_selection) {
-			case 'popular':
-				echo "Popular: <br/>";
-				foreach($popular as $elem) {
-					echo $elem . "<br/>";
-				}
-				break;
-			case 'special_event':
-				echo "Special Events: <br/>";
-				foreach($special as $elem) {
-					echo $elem . "<br/>";
-				}
-				break;
-			case 'mingle':
-				echo "Mingle: <br/>";
-				foreach($mingle as $elem) {
-					echo $elem . "<br/>";
-				}
-				break;
-			case 'economical':
-				echo "Economical: <br/>";
-				foreach($economical as $elem) {
-					echo $elem . "<br/>";
-				}
-				break;
-			case 'study':
-				echo "Study: <br/>";
-				foreach($study as $elem) {
-					echo $elem . "<br/>";
-				}
-				break;
-			case 'large_group':
-				echo "Large Group: <br/>";
-				foreach($large_group as $elem) {
-					echo $elem . "<br/>";
-				}
-				break;
-			case 'random':
-				echo "Random: <br/>";
-				foreach($random as $elem) {
-					echo $elem . "<br/>";
-				}
-				break;
-			case 'all':
-				//queries
-				$sql = "SELECT Venue_ID, Name, Address, ZipCode from Venue";
-				$results = mysqli_query($con,$sql);
-				$num_rows = $results->num_rows;
-
-				echo "<div>";
-				if ($num_rows > 0) {
-					echo "<table>";
-					while($i = mysqli_fetch_array($results)) {
-						echo "<tr>";
-						$v_id = $i['Venue_ID'];
-						$v_name = $i['Name'];
-						$v_add = $i['Address'];
-						$v_zip = $i['ZipCode'];
-						echo "<td>" . $v_id . "</td>";
-						echo "<td>" . $v_name . "</td>";
-						echo "<td>" . $v_add . "</td>";
-						echo "<td>" . $v_zip . "</td>";
-						echo "</tr>";
+					$where_statement = "";
+					foreach($numbers as $rand_num) {
+						$where_statement = $where_statement . "Venue_ID like '_%$rand_num' or ";
 					}
-					echo "</table>";
+					$where_statement = $where_statement . "Venue_ID=0";//to end where st
+					//echo $where_statement;
+
+					$sql = "SELECT * from Venue where $where_statement;";				
+					break;
+				case 'all':
+					$sql = "SELECT * from Venue natural join Amenities;";
+					echo "<p>All</p>";
+					break;
+			}
+
+			$results = mysqli_query($con, $sql);
+			$num_rows = $results->num_rows;
+			
+			if ($num_rows > 0) {
+				echo "<table>";
+				echo "<thead>
+						<tr>
+							<th>Venue ID</th>
+							<th>Venue Name</th>
+							<th>Address</th>
+							<th>Zipcode</th>
+							<th>Lat</th>
+							<th>Long</th>
+							<th>Type</th>
+							<th>Rating</th>
+							<th>Likes</th>
+						</tr>
+					  </thead>";
+				while($i = mysqli_fetch_array($results)) {
+					echo "<tr>";
+					$v_id = $i['Venue_ID'];
+					$v_name = $i['Name'];
+					$v_add = $i['Address'];
+					$v_zip = $i['ZipCode'];
+					$v_lat = $i['Latitude'];
+					$v_long = $i['Longitude'];
+					$v_type = $i['Venue_Type'];
+					$rating = $i['Rating'];
+					$v_likes = $i['Likes'];
+					echo "<td>" . $v_id . "</td>";
+					echo "<td>" . $v_name . "</td>";
+					echo "<td>" . $v_add . "</td>";
+					echo "<td>" . $v_zip . "</td>";
+					echo "<td>" . $v_lat . "</td>";
+					echo "<td>" . $v_long . "</td>";
+					echo "<td>" . $v_type . "</td>";
+					echo "<td>" . $rating . "</td>";
+					echo "<td>" . $v_likes . "</td>";
+					echo "</tr>";
 				}
-				else {
-					echo "<p>No results found.</p>";
-				}
-				echo "</div>";
-			default:
-				echo "Please select an outing type!";
-				break;
+				echo "</table>";
+			}//end if
+			else {
+				echo "<p>No venues match your criteria.</p>";
+			}
+			echo "</div>";		
+		}//end function get_query()
+
+		if (isset($post_venue_selection)) {
+			//determine which list to show based on selection
+			switch ($post_venue_selection) {
+				case 'popular':
+					get_query('popular');
+					break;
+				case 'special_event':
+					get_query('special_event');
+					break;
+				case 'mingle':
+					get_query('mingle');
+					break;
+				case 'economical':
+					get_query('economical');
+					break;
+				case 'study':
+					get_query('study');
+					break;
+				case 'large_group':
+					get_query('large_group');
+					break;
+				case 'random':
+					get_query('random');
+					break;
+				case 'all':
+					get_query('all');
+					break;
+			}//end switch
+		}//end if isset
+		else {
+			echo "<p><b>Please select an outing type!</b></p>";
 		}
-
-
 
 		?>
 		<br>
@@ -463,8 +262,9 @@
 	</body>
 
 	<footer>
-	&copy; Team 9, CMPE 226, Fall 2014, SJSU<br>
-	&copy; Foursquare Data obtained through the free API
+		<hr>
+		&copy; Team 9, CMPE 226, Fall 2014, SJSU<br>
+		&copy; Foursquare Data obtained through the free API
    	</footer>
 
 
