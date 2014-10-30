@@ -13,16 +13,19 @@
 	<meta charset="UTF-8" />
 	<title>Recommender</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" />
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type='text/javascript' src='sort.js'></script>
    </head>
 
-
    <body>
+	<div class='jumbotron'>
+		<header>
+		    <h1 class='text-center'>Venue Recommender</h1>
+		</header>
+	</div>
 	<div class='container'>
-	<header>
-	    <h1 class='text-center'>Venue Recommender</h1>
-	</header>
-
-	<p class='text-center'>Pick a Criteria!</p>
+		<p class='text-center'>Pick a Criteria!</p>
+	
 	
 		<?php
 		//database settings
@@ -36,88 +39,25 @@
 		if (mysqli_connect_errno()) {
 			echo "Failed to connect to MySQL DB: " . mysqli_connect_error();
 		}
-
-		//set selection of form
-		$select1 = '';
-		$select2 = '';
-		$select3 = '';
-		$select4 = '';
-		$select5 = '';
-		$select6 = '';
-		$select7 = '';
-		$select8 = '';
-		if (isset($_POST['venue_selection'])) {
-			$post_venue_selection = $_POST['venue_selection'];
-			switch($post_venue_selection) {
-				case 'popular':
-					$select1 = "checked='checked'";
-					break;
-				case 'special_event':
-					$select2 = "checked='checked'";
-					break;
-				case 'mingle':
-					$select3 = "checked='checked'";
-					break;
-				case 'economical':
-					$select4 = "checked='checked'";
-					break;
-				case 'study':
-					$select5 = "checked='checked'";
-					break;
-				case 'large_group':
-					$select6 = "checked='checked'";
-					break;
-				case 'random':
-					$select7 = "checked='checked'";
-					break;
-				case 'all':
-					$select8 = "checked='checked'";
-					break;
-			}
-		}
 		?>
 		
-			<form class='form text-center' method='POST' name='venueform' action='sorter.php'>
-				<div class='btn-group' data-toggle='buttons'>
-					<label class='btn btn-primary'><input type='radio' name='venue_selection' value='popular' 
-					<?php echo $select1; ?>
-					>Popular
-					</label>
-					<label class='btn btn-primary'><input type='radio' name='venue_selection' value='special_event'
-					<?php echo $select2; ?>
-					>Special Events
-					</label>
-					<label class='btn btn-primary'><input type='radio' name='venue_selection' value='mingle'
-					<?php echo $select3; ?>
-					>Mingle
-					</label>
-					<label class='btn btn-primary'><input type='radio' name='venue_selection' value='economical'
-					<?php echo $select4; ?>
-					>Economical
-					</label>
-					<label class='btn btn-primary'><input type='radio' name='venue_selection' value='study'
-					<?php echo $select5; ?>
-					>Study
-					</label>
-					<label class='btn btn-primary'><input type='radio' name='venue_selection' value='large_group'
-					<?php echo $select6; ?>
-					>Large Group
-					</label>
-					<label class='btn btn-primary'><input type='radio' name='venue_selection' value='random'
-					<?php echo $select7; ?>
-					>Random
-					</label>
-					<label class='btn btn-primary'><input type='radio' name='venue_selection' value='all'
-					<?php echo $select8; ?>
-					>All
-					</label>
-				</div>
-				<br><br>
-				<input type='submit' class='btn btn-success btn-large' value='Recommend!'>
-			</form>
 		
-		<div id='results'>
-		<?php
+		<form id='sort' class='form text-center' method='POST' name='venueform' action='sorter.php'>
+			<div class='btn-group' data-toggle='buttons'>
+				<label class='btn btn-primary'><input type='radio' name='venue_selection' value='popular'>Popular</label>
+				<label class='btn btn-primary'><input type='radio' name='venue_selection' value='special_event'>Special Events</label>
+				<label class='btn btn-primary'><input type='radio' name='venue_selection' value='mingle'>Mingle</label>
+				<label class='btn btn-primary'><input type='radio' name='venue_selection' value='economical'>Economical</label>
+				<label class='btn btn-primary'><input type='radio' name='venue_selection' value='study'>Study</label>
+				<label class='btn btn-primary'><input type='radio' name='venue_selection' value='large_group'>Large Group</label>
+				<label class='btn btn-primary'><input type='radio' name='venue_selection' value='random'>Random</label>
+				<label class='btn btn-primary'><input type='radio' name='venue_selection' value='all'>All</label>
+			</div>
+			<br><br>
+			<input type='submit' class='btn btn-success btn-large' value='Recommend!'>
+		</form>
+		
+<?php
 		//function to get queries based on criteria
 		function get_query($case) {
 			//database settings
@@ -127,6 +67,9 @@
 			$database="FS_Recommender";
 			//connect to database
 			$con =mysqli_connect($host,$username,$password,$database);
+			if (mysqli_connect_errno()) {
+			echo "Failed to connect to MySQL DB: " . mysqli_connect_error();
+			}
 
 			switch($case) {
 				case 'popular':
@@ -224,10 +167,14 @@
 			else {
 				echo "<p>No venues match your criteria.</p>";
 			}
-			echo "</div>";		
+			echo "</div>";
+			mysqli_close($con);//close connection go db
 		}//end function get_query()
 
-		if (isset($post_venue_selection)) {
+
+		if (isset($_POST['venue_selection'])) {
+			$post_venue_selection = $_POST['venue_selection'];
+			//echo $post_venue_selection;
 			//determine which list to show based on selection
 			switch ($post_venue_selection) {
 				case 'popular':
@@ -270,6 +217,5 @@
 		&copy; Team 9, CMPE 226, Fall 2014, SJSU<br>
 		&copy; Foursquare Data obtained through the free API
    	</footer>
-
 
 </html>
