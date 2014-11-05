@@ -40,11 +40,20 @@
 	</div>
 
 	<div class='container' id='results'>	
-	<?php
-		//call function to get queries based on criteria
-		include 'queries.php';
-		call_queries();
-	?>
+		<div class='row'>
+			<div class='col-sm-6'>
+			<?php
+				//call function to get queries based on criteria
+				include 'queries.php';
+				call_queries();
+			?>
+			</div>
+			<div class='col-sm-6'>
+				<div class='callout callout-warning'>
+					<img alt='Placeholder for Google Map' height='500' width='500'>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	</body>
