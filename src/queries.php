@@ -11,30 +11,43 @@
 		switch($case) {
 			case 'popular':
 				$sql = "SELECT * FROM Venue natural join Amenities where rating > 7 and likes > 50;";
-				echo "<div class='callout callout-info'><h5>Popular</h5>";
+				echo "<div class='callout callout-info'>
+					<h5 class='text-center lead text-uppercase'><strong>Popular</strong>
+					</h5>";
 				break;
 			case 'special_event':
 				$sql = "SELECT * FROM Venue natural join Amenities where reservations = 'Y' and events_count = 0;";
-				echo "<div class='callout callout-info'><h5>Special Event</h5>";
+				echo "<div class='callout callout-info'>
+					<h5 class='text-center lead text-uppercase'><strong>Special Event</strong>
+					</h5>";
 				break;
 			case 'mingle':
 				$sql = "SELECT * FROM Venue natural join Amenities where alcohol='Y' or menus like '%Happy Hour%' or Venue_type like '%Bar%';";
-				echo "<div class='callout callout-info'><h5>Mingle</h5>";
+				echo "<div class='callout callout-info'>
+					<h5 class='text-center lead text-uppercase'><strong>Mingle</strong>
+					</h5>";
 				break;
 			case 'economical':
 				$sql = "SELECT * FROM Venue natural join Amenities where price='$';";
-				echo "<div class='callout callout-info'><h5>Economical</h5>";
+				echo "<div class='callout callout-info'>
+					<h5 class='text-center lead text-uppercase'><strong>Economical</strong>
+					</h5>";
 				break;
 			case 'study':
 				$sql = "SELECT * FROM Venue natural join Amenities where (venue_type like '%Coffee%' or venue_type like '%Cafe%') and wifi = 'Y';";
-				echo "<div class='callout callout-info'><h5>Study</h5>";
+				echo "<div class='callout callout-info'>
+					<h5 class='text-center lead text-uppercase'><strong>Study</strong>
+					</h5>";
 				break;
 			case 'large_group':
 				$sql = "SELECT * FROM Venue natural join Amenities where reservations = 'Y' or venue_type like '%Restaurant%';";
-				echo "<div class='callout callout-info'><h5>Large Group</h5>";
+				echo "<div class='callout callout-info'>
+					<h5 class='text-center lead text-uppercase'><strong>Large Group</strong>
+					</h5>";
 				break;
 			case 'random':
-				echo "<div class='callout callout-info'><h5>Random</h5>";
+				echo "<div class='callout callout-info'>
+					<h5 class='text-center lead text-uppercase'><strong>Random</strong></h5>";
 				/*For random picker logic*/
 				$sql1 = "SELECT Venue_ID from Venue"; //select all venue IDs in db
 				$results1 = mysqli_query($con, $sql1);
@@ -42,20 +55,21 @@
 				$numbers = range(1,$num_ent);
 				shuffle($numbers);
 
-				$numbers = array_slice($numbers,0,5); //pick five
+				$numbers = array_slice($numbers,0,5); //pick five numbers
 
 				$where_statement = "";
 				foreach($numbers as $rand_num) {
 					$where_statement = $where_statement . "Venue_ID like '_%$rand_num' or ";
 				}
-				$where_statement = $where_statement . "Venue_ID=0";//to end where st
+				$where_statement = $where_statement . "Venue_ID=0 limit 5";//to end where st
 				//echo $where_statement;
 
 				$sql = "SELECT * from Venue where $where_statement;";				
 				break;
 			case 'all':
 				$sql = "SELECT * from Venue natural join Amenities;";
-				echo "<div class='callout callout-info'><h5>All</h5>";
+				echo "<div class='callout callout-info'>
+					<h5 class='text-center lead text-uppercase'><strong>All</strong></h5>";
 				break;
 		}
 
@@ -63,22 +77,8 @@
 		$num_rows = $results->num_rows;
 		
 		if ($num_rows > 0) {
-			echo "<table class='table table-hover'>";
-			echo "<thead>
-					<tr>
-						<th>Venue ID</th>
-						<th>Venue Name</th>
-						<th>Address</th>
-						<th>Zipcode</th>
-						<th>Lat</th>
-						<th>Long</th>
-						<th>Type</th>
-						<th>Rating</th>
-						<th>Likes</th>
-					</tr>
-				  </thead>";
 			while($i = mysqli_fetch_array($results)) {
-				echo "<tr>";
+				echo "<div class='row'>";
 				$v_id = $i['Venue_ID'];
 				$v_name = $i['Name'];
 				$v_add = $i['Address'];
@@ -88,23 +88,29 @@
 				$v_type = $i['Venue_Type'];
 				$rating = $i['Rating'];
 				$v_likes = $i['Likes'];
-				echo "<td>" . $v_id . "</td>";
-				echo "<td>" . $v_name . "</td>";
-				echo "<td>" . $v_add . "</td>";
-				echo "<td>" . $v_zip . "</td>";
-				echo "<td>" . $v_lat . "</td>";
-				echo "<td>" . $v_long . "</td>";
-				echo "<td>" . $v_type . "</td>";
-				echo "<td>" . $rating . "</td>";
-				echo "<td>" . $v_likes . "</td>";
-				echo "</tr>";
+				echo "<div class='col-sm-3 header'><b>Venue ID</b></div>";
+				echo "<div class='col-sm-9 answer'>$v_id</div>";
+				echo "<div class='col-sm-3 header'><b>Name</b></div>";
+				echo "<div class='col-sm-9 answer'>$v_name</div>";
+				echo "<div class='col-sm-3 header'><b>Address</b></div>";
+				echo "<div class='col-sm-9 answer'>$v_add</div>";
+				echo "<div class='col-sm-3 header'><b>Zip</b></div>";
+				echo "<div class='col-sm-9 answer'>$v_zip</div>";
+				echo "<div class='col-sm-3 header'><b>Type</b></div>";
+				echo "<div class='col-sm-9 answer'>$v_type</div>";
+				
+				
+				//echo "<td>" . $v_lat . "</td>";
+				//echo "<td>" . $v_long . "</td>";
+				//echo "<td>" . $rating . "</td>";
+				//echo "<td>" . $v_likes . "</td>";
+				echo "</div>";
 			}
-			echo "</table>";
 		}//end if
 		else {
 			echo "<p>No venues match your criteria.</p>";
 		}
-		echo "</div></div>";
+		echo "</div>";
 		mysqli_close($con);//close connection go db
 	}//end function get_query()
 
