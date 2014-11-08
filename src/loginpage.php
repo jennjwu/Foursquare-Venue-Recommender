@@ -56,22 +56,14 @@
                </div>
 
                <!-- Collect the nav links, forms, and other content for toggling -->
-               <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+               <div class="collapse navbar-collapse navbar-right navbar-main-collapse" style="background-color: rgb(103, 176, 209)">
                    <ul class="nav navbar-nav">
                        <li><a href="index.html">Home</a></li>
                        <li><a href="index.html#about">Category</a></li>
                        <li><a href="index.html#service">Hot Place</a></li>
                        <li class="active"><a href="loginpage.php">Login</a></li>
                        <li><a href="signuppage.php">Sign Up</a></li>
-                       <li class="dropdown">
-                           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                           <ul class="dropdown-menu">
-                               <li><a href="#">Example menu</a></li>
-                               <li><a href="#">Example menu</a></li>
-                               <li><a href="#">Example menu</a></li>
-                           </ul>
-                       </li>
-                   </ul>
+
                </div>
                <!-- /.navbar-collapse -->
            </div>
@@ -109,11 +101,12 @@
             </div>
         </div>
 
-        <footer class="footerstyle">
+        <footer>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-lg-12">
-                        <p>&copy; 2014 - FourU. All rights reserved.</p>
+                        <p>&copy;2014 - FourU. All rights reserved.</p>
+                        <p>Team 9, CMPE 226, Fall 2014, SJSU</p>
                     </div>
                 </div>
             </div>
