@@ -9,37 +9,67 @@
     -->
 	<meta charset="UTF-8" />
 	<title>FourU Recommender</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="css/bootstrap-flat-extras.css" rel="stylesheet" />
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script type='text/javascript' src='sort.js'></script>
+	        <!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Fonts -->
+        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="css/animate.css" rel="stylesheet" />
+        <!-- Squad theme CSS -->
+        <link href="css/style.css" rel="stylesheet">
+        <link href="color/default.css" rel="stylesheet">
    	</head>
 
    	<body>
-   	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-   		<div class="container-fluid">
-   			<ul class="nav navbar-nav">
-   				<li><a href="home.php">Home</a></li>
-   				<li><a href="sorter.php">Recommender</a></li>
-   			</ul>
-   			<div class="nav navbar-right">
-   				<a href="loginpage.php">
-   					<button type="button" class="btn btn-default navbar-btn">Login</button>
-   				</a>
-   				<a href="signuppage.php">
-   					<button type="button" class="btn btn-default navbar-btn">Sign Up</button>
-   				</a>
-   			</div>
-   		</div>
-   	</nav>
+   	<nav class="navbar navbar-custom navbar-fixed-top top-nav" role="navigation">
+           <div class="container">
+               <div class="navbar-header">
+                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                       <i class="fa fa-bars"></i>
+                   </button>
+                   <a class="navbar-brand" href="index.html">
+                       <h1>FourU</h1>
+                   </a>
+               </div>
+
+               <!-- Collect the nav links, forms, and other content for toggling -->
+               <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                   <ul class="nav navbar-nav">
+                       <li><a href="index.html">Home</a></li>
+                       <li><a href="index.html#about">Category</a></li>
+                       <li><a href="index.html#service">Hot Place</a></li>
+                       <li class="active"><a href="loginpage.php">Login</a></li>
+                       <li><a href="signuppage.php">Sign Up</a></li>
+                       <li class="dropdown">
+                           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                           <ul class="dropdown-menu">
+                               <li><a href="#">Example menu</a></li>
+                               <li><a href="#">Example menu</a></li>
+                               <li><a href="#">Example menu</a></li>
+                           </ul>
+                       </li>
+                   </ul>
+               </div>
+               <!-- /.navbar-collapse -->
+           </div>
+           <!-- /.container -->
+        </nav>
 
 
-	<div class='jumbotron'>
-		<header>
-		    <h1 class='text-center'>Venue Recommender</h1>
-		</header>
-	</div>
-	<div class='container'>
+	<section class="home-section1 text-center">
+            <div class='section-heading'>
+                <h1>FourU Recommender</h1>
+                <?php
+	                if (isset($_GET['category'])) {
+	                	$category = $_GET['category'];
+	                	$category = preg_replace('/_/', ' ', $category);
+	                	echo "<h4>$category</h4>";
+	            	}
+            	?>
+            </div>
+        </section>
+
+	<!--<div class='container'>
 		<p class='text-center'>Pick a Criteria!</p>
 		<form id='venueform' class='form text-center' method='POST' action='sorter.php'>
 			<div class='btn-group' data-toggle='buttons'>
@@ -55,7 +85,7 @@
 			<br><br>
 			<input type='submit' class='btn btn-success btn-large' value='Recommend!'>
 		</form>
-	</div>
+	</div>-->
 
 	<div class='container' id='results'>	
 		<div class='row'>
@@ -74,13 +104,25 @@
 		</div>
 	</div>
 
-	</body>
+		<footer class="footerstyle">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <p>&copy; 2014 - FourU. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
-	<footer class='col-md-12 text-center'>
-		<hr>
-		&copy; Team 9, CMPE 226, Fall 2014, SJSU<br>
-		&copy; Foursquare Data obtained through the free API
-		<br>
-		<br>
-   	</footer>
+        <!-- Core JavaScript Files -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.easing.min.js"></script>
+        <script src="js/jquery.scrollTo.js"></script>
+        <script src="js/wow.min.js"></script>
+        <!-- Custom Theme JavaScript -->
+        <script src="js/custom.js"></script>
+
+        <script type='text/javascript' src='sort.js'></script>
+	</body>
 </html>
