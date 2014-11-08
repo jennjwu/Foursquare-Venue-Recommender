@@ -10,15 +10,23 @@
    	Jennifer Wu
     -->
 
-	<meta charset="UTF-8" />
-	<title>FourU - Sign Up</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" />
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script type='text/javascript' src='sort.js'></script>
+        <meta charset="UTF-8" />
+        <title>FourU - Sign Up</title>
+
+       <!-- Bootstrap Core CSS -->
+       <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+       <!-- Fonts -->
+       <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+       <link href="css/animate.css" rel="stylesheet" />
+       <!-- Squad theme CSS -->
+       <link href="css/style.css" rel="stylesheet">
+       <link href="color/default.css" rel="stylesheet">
+
    </head>
 
    <body>
-   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+   <!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
    		<div class="container-fluid">
    			<ul class="nav navbar-nav">
    				<li><a href="home.php">Home</a></li>
@@ -33,16 +41,53 @@
    				</a>
    			</div>
    		</div>
-   	</nav>
+   	</nav>-->
 
-	<div class='jumbotron'>
-		<header>
-		    <h1 class='text-center'>FourU Sign Up</h1>
-		</header>
-	</div>
+   <nav class="navbar navbar-custom navbar-fixed-top top-nav" role="navigation">
+       <div class="container">
+           <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                   <i class="fa fa-bars"></i>
+               </button>
+               <a class="navbar-brand" href="index.html">
+                   <h1>FourU</h1>
+               </a>
+           </div>
 
-	<div class="container">
+           <!-- Collect the nav links, forms, and other content for toggling -->
+           <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+               <ul class="nav navbar-nav">
+                   <li><a href="index.html">Home</a></li>
+                   <li><a href="index.html#about">Category</a></li>
+                   <li><a href="index.html#service">Hot Place</a></li>
+                   <li><a href="loginpage.php">Sign In</a></li>
+                   <li class="active"><a href="signuppage.php">Sign Up</a></li>
+                   <li class="dropdown">
+                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                       <ul class="dropdown-menu">
+                           <li><a href="#">Example menu</a></li>
+                           <li><a href="#">Example menu</a></li>
+                           <li><a href="#">Example menu</a></li>
+                       </ul>
+                   </li>
+               </ul>
+           </div>
+           <!-- /.navbar-collapse -->
+       </div>
+       <!-- /.container -->
+   </nav>
+
+   <!-- Section: sign up -->
+   <section class="home-section1 text-center" style="padding: 10px">
+       <div class='section-heading'>
+            <h1>FourU sign up</h1>
+       </div>
+   </section>
+
+
+   <div class="container">
 		<div class="row">
+
 			<div class="col-md-6 col-md-offset-3">
 				<form class="form-horizontal" role="form" action="login.php" method="post"
 					enctype="application/x-www-form-urlencoded">
@@ -74,11 +119,28 @@
 	</div>
 
 
-	</body>
+   <footer class="footerstyle">
+       <div class="container">
+           <div class="row">
+               <div class="col-md-12 col-lg-12">
+                   <p>Team 9, CMPE 226, Fall 2014, SJSU</p>
+               </div>
+           </div>
+       </div>
+   </footer>
 
-	<footer class='col-md-12 text-center'>
-		<hr>
-		&copy; Team 9, CMPE 226, Fall 2014, SJSU<br>
-		&copy; Foursquare Data obtained through the free API
-   	</footer>
+   <!-- Core JavaScript Files -->
+   <script src="js/jquery.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/jquery.easing.min.js"></script>
+   <script src="js/jquery.scrollTo.js"></script>
+   <script src="js/wow.min.js"></script>
+   <!-- Custom Theme JavaScript -->
+   <script src="js/custom.js"></script>
+
+   <script type='text/javascript' src='sort.js'></script>
+
+    </body>
+
+
 </html>
