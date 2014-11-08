@@ -121,6 +121,23 @@ CREATE TABLE IF NOT EXISTS `FS_Recommender`.`User_Favs` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `FS_Recommender`.`Accounts`
+-- -----------------------------------------------------
+/*For user login authentication*/
+DROP TABLE IF EXISTS `FS_Recommender`.`Accounts` ;
+
+CREATE TABLE `Accounts` (
+  `login_id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `last_login` datetime NOT NULL,
+  PRIMARY KEY (`login_id`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
@@ -226,3 +243,7 @@ INSERT INTO `User_Favs` (`User_ID`,`Venue_ID`,`Date_Visiting`) VALUES (1001,9017
 INSERT INTO `User_Favs` (`User_ID`,`Venue_ID`,`Date_Visiting`) VALUES (1002,9001,'2014-11-01');
 INSERT INTO `User_Favs` (`User_ID`,`Venue_ID`,`Date_Visiting`) VALUES (1002,9016,'2014-11-25');
 INSERT INTO `User_Favs` (`User_ID`,`Venue_ID`,`Date_Visiting`) VALUES (1003,9009,'2014-11-18');
+
+/*Insert for user login information*/
+INSERT INTO `Accounts` (`email`,`password`,`last_login`) VALUES ('jennifer.j.wu@sjsu.edu','cmpe226',now());
+INSERT INTO `Accounts` (`email`,`password`,`last_login`) VALUES ('xiaoli.jiang@sjsu.edu','cmpe226pw',now());
