@@ -83,23 +83,19 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `FS_Recommender`.`Amenities` ;
 
-CREATE TABLE IF NOT EXISTS `FS_Recommender`.`Amenities` (
+CREATE TABLE `Amenities` (
   `Venue_ID` int(11) NOT NULL,
   `Reservations` varchar(1) DEFAULT NULL,
   `Credit_Cards` varchar(1) DEFAULT NULL,
-  `Takeout` varchar(1) DEFAULT NULL,
-  `Drivethru` varchar(1) DEFAULT NULL,
   `Outdoor_Seating` varchar(1) DEFAULT NULL,
   `Alcohol` varchar(1) DEFAULT NULL,
   `Wifi` varchar(1) DEFAULT NULL,
+  `Menus` varchar(45) DEFAULT NULL,
   `Events_Count` int(11) DEFAULT NULL,
   PRIMARY KEY (`Venue_ID`),
-  CONSTRAINT `fk_Amenities_Venue1`
-    FOREIGN KEY (`Venue_ID`)
-    REFERENCES `FS_Recommender`.`Venue` (`Venue_ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  CONSTRAINT `fk_Amenities_Venue1` FOREIGN KEY (`Venue_ID`) REFERENCES `Venue` (`Venue_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB;
+
 
 -- -----------------------------------------------------
 -- Table `FS_Recommender`.`User_Favs`
@@ -132,8 +128,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 /*Inserts*/
-INSERT INTO `FS_Recommender`.`User` (`User_ID`, `Name`, `ZipCode`) VALUES ('1001', 'Jenn', '95192');
-INSERT INTO `FS_Recommender`.`User` (`User_ID`, `Name`, `ZipCode`) VALUES ('1002', 'Xiaoli', '95192');
+INSERT INTO `User` (`User_ID`, `Name`, `ZipCode`) VALUES ('1001', 'Jenn', '95192');
+INSERT INTO `User` (`User_ID`, `Name`, `ZipCode`) VALUES ('1002', 'Xiaoli', '95192');
 INSERT INTO `User` (`User_ID`,`Name`,`ZipCode`) VALUES (1003,'Bob',95113);
 
 
