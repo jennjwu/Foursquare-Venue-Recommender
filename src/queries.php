@@ -11,43 +11,30 @@
 		switch($case) {
 			case 'popular':
 				$sql = "SELECT * FROM Venue natural join Amenities where rating > 7 and likes > 50;";
-				echo "<div class='callout callout-info'>
-					<h5 class='text-center lead text-uppercase'><strong>Popular</strong>
-					</h5>";
+				echo "<div class='bg-info'>";
 				break;
 			case 'special_event':
 				$sql = "SELECT * FROM Venue natural join Amenities where reservations = 'Y' and events_count = 0;";
-				echo "<div class='callout callout-info'>
-					<h5 class='text-center lead text-uppercase'><strong>Special Event</strong>
-					</h5>";
+				echo "<div class='bg-info'>";
 				break;
 			case 'mingle':
 				$sql = "SELECT * FROM Venue natural join Amenities where alcohol='Y' or menus like '%Happy Hour%' or Venue_type like '%Bar%';";
-				echo "<div class='callout callout-info'>
-					<h5 class='text-center lead text-uppercase'><strong>Mingle</strong>
-					</h5>";
+				echo "<div class='bg-info'>";
 				break;
 			case 'economical':
 				$sql = "SELECT * FROM Venue natural join Amenities where price='$';";
-				echo "<div class='callout callout-info'>
-					<h5 class='text-center lead text-uppercase'><strong>Economical</strong>
-					</h5>";
+				echo "<div class='bg-info'>";
 				break;
 			case 'study':
 				$sql = "SELECT * FROM Venue natural join Amenities where (venue_type like '%Coffee%' or venue_type like '%Cafe%') and wifi = 'Y';";
-				echo "<div class='callout callout-info'>
-					<h5 class='text-center lead text-uppercase'><strong>Study</strong>
-					</h5>";
+				echo "<div class='bg-info'>";
 				break;
 			case 'large_group':
 				$sql = "SELECT * FROM Venue natural join Amenities where reservations = 'Y' or venue_type like '%Restaurant%';";
-				echo "<div class='callout callout-info'>
-					<h5 class='text-center lead text-uppercase'><strong>Large Group</strong>
-					</h5>";
+				echo "<div class='bg-info'>";
 				break;
 			case 'random':
-				echo "<div class='callout callout-info'>
-					<h5 class='text-center lead text-uppercase'><strong>Random</strong></h5>";
+				echo "<div class='bg-info'>";
 				/*For random picker logic*/
 				$sql1 = "SELECT Venue_ID from Venue"; //select all venue IDs in db
 				$results1 = mysqli_query($con, $sql1);
@@ -68,8 +55,7 @@
 				break;
 			case 'all':
 				$sql = "SELECT * from Venue natural join Amenities;";
-				echo "<div class='callout callout-info'>
-					<h5 class='text-center lead text-uppercase'><strong>All</strong></h5>";
+				echo "<div class='bg-info'>";
 				break;
 		}
 
@@ -92,10 +78,16 @@
 				echo "<div class='col-sm-9 answer'>$v_id</div>";
 				echo "<div class='col-sm-3 header'><b>Name</b></div>";
 				echo "<div class='col-sm-9 answer'>$v_name</div>";
-				echo "<div class='col-sm-3 header'><b>Address</b></div>";
-				echo "<div class='col-sm-9 answer'>$v_add</div>";
-				echo "<div class='col-sm-3 header'><b>Zip</b></div>";
-				echo "<div class='col-sm-9 answer'>$v_zip</div>";
+				if ($v_add != null && $v_zip != null) {
+					echo "<div class='col-sm-3 header'><b>Address</b></div>";
+					echo "<div class='col-sm-9 answer'>$v_add</div>";	
+					echo "<div class='col-sm-3 header'><b>Zip</b></div>";
+					echo "<div class='col-sm-9 answer'>$v_zip</div>";
+				}
+				else {
+					echo "<div class='col-sm-3 header'><b>Address</b></div>";
+					echo "<div class='col-sm-9 answer'><i>No Address Listed</i></div>";	
+				}
 				echo "<div class='col-sm-3 header'><b>Type</b></div>";
 				echo "<div class='col-sm-9 answer'>$v_type</div>";
 				
@@ -115,8 +107,8 @@
 	}//end function get_query()
 
 	function call_queries() {
-		if (isset($_POST['venue_selection'])) {
-			$post_venue_selection = $_POST['venue_selection'];
+		if (isset($_GET['category'])) {
+			$post_venue_selection = $_GET['category'];
 			//echo $post_venue_selection;
 			//determine which list to show based on selection
 			switch ($post_venue_selection) {
