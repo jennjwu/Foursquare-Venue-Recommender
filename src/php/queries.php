@@ -59,6 +59,7 @@
 						<div class=''>
 							<div class='row'>";
 				$v_id = $i['Venue_ID'];
+                $FS_ID = $i['FS_ID'];
 				$v_name = $i['Name'];
 				$v_add = $i['Address'];
 				$v_zip = $i['ZipCode'];
@@ -70,7 +71,7 @@
 				//echo "<div class='col-sm-3 header'><b>Venue ID</b></div>";
 				//echo "<div class='col-sm-9 answer'>$v_id</div>";
 				//echo "<div class='col-sm-3 header'><b>Name</b></div>";
-				echo "<div class='col-sm-12 '><a href='#'><h4>$v_name</h4></a></div>";
+				echo "<div class='col-sm-12 '><a href='venuedetails.php?FS_ID=$FS_ID'><h4>$v_name</h4></a></div>";
 				if ($v_add != null && $v_zip != null) {
 					//echo "<div class='col-sm-3 header'><b>Address</b></div>";
 					echo "<div class='col-sm-12 '>$v_add</div>";
