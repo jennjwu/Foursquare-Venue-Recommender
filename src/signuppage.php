@@ -87,26 +87,64 @@
 		<div class="row">
 
 			<div class="col-md-6 col-md-offset-3">
-				<form class="form-horizontal" role="form" action="login.php" method="post"
+        <div id="validate">
+            <?php
+              include "php/signup.php";
+              if ($pw_mismatch) {
+                  echo "<h5 class='text-danger text-center'>Your passwords do not match.<br>
+                  Please try again.</h5>";
+              }
+            ?>
+        </div>
+				<form class="form-horizontal" role="form" action="signuppage.php" method="post"
 					enctype="application/x-www-form-urlencoded">
 					<div class="form-group">
-						<input type="number" class="form-control input-lg" id="zipcode" 
-							placeholder="Zipcode">
-					</div>
+            <?php 
+              if ($pw_mismatch) {
+                  echo "<input type='text' class='form-control input-lg' name='user_name' 
+                            placeholder='Name' required='required' value='$user_name'>
+                        </div>
+                        <div class='form-group'>
+                          <input type='number' class='form-control input-lg' name='zipcode' 
+                            placeholder='Zipcode' required='required' value='$user_zip'>
+                        </div>
+                        <div class='form-group'>
+                          <input type='email' class='form-control input-lg' name='email' 
+                            placeholder='Email' required='required' value='$user_email'>
+                        </div>";
+                  echo "<div class='form-group has-error'>
+                        <input type='password' class='form-control input-lg' name='password'
+                          placeholder='Password' required='required'>
+                      </div>
+                      <div class='form-group has-error'>
+                        <input type='password' class='form-control input-lg' name='password_confirm'
+                          placeholder='Confirm Password' required='required'>
+                      </div>";
+              }
+              else {
+                  echo "<input type='text' class='form-control input-lg' name='user_name' 
+                            placeholder='Name' required='required'>
+                        </div>
+                        <div class='form-group'>
+                          <input type='number' class='form-control input-lg' name='zipcode' 
+                            placeholder='Zipcode' required='required'>
+                        </div>
+                        <div class='form-group'>
+                          <input type='email' class='form-control input-lg' name='email' 
+                            placeholder='Email' required='required'>
+                        </div>";
+                  echo "<div class='form-group'>
+                        <input type='password' class='form-control input-lg' name='password'
+                          placeholder='Password' required='required'>
+                      </div>
+                      <div class='form-group'>
+                        <input type='password' class='form-control input-lg' name='password_confirm'
+                          placeholder='Confirm Password' required='required'>
+                      </div>";
+              }             
+            ?>
 					<div class="form-group">
-						<input type="email" class="form-control input-lg" id="email" 
-							placeholder="Email">
-					</div>
-					<div class="form-group">
-						<input type="password" class="form-control input-lg" id="inputPassword3"
-							placeholder="Password">
-					</div>
-					<div class="form-group">
-						<input type="password" class="form-control input-lg" id="inputPassword3"
-							placeholder="Confirm Password">
-					</div>
-					<div class="form-group">
-						<button type="submit" class="btn btn-default btn-success btn-lg">Sign in</button>
+						<button type="submit" class="btn btn-default btn-success btn-lg">Sign Up</button>
 					</div>
 				</form>
 				<div>
