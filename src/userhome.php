@@ -22,6 +22,8 @@
 
    	<body>
       <?php session_start(); ?>
+      <div class="wrapper">
+
    	<nav class="navbar navbar-custom navbar-fixed-top top-nav" role="navigation">
            <div class="container">
                <div class="navbar-header">
@@ -39,7 +41,22 @@
                       <li><a href="index.php">Home</a></li>
                       <li><a href="index.php#about">Category</a></li>
                       <li><a href="index.php#service">Hot Place</a></li>
+                      
                       <li class="dropdown">
+                           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Recommender<b class="caret"></b></a>
+                           <ul class="dropdown-menu">
+                               <li><a href="sorter.php?category=popular">Popular</a></li>
+                               <li><a href="sorter.php?category=special_event">Special Event</a></li>
+                               <li><a href="sorter.php?category=large_group">Large Group</a></li>
+                               <li><a href="sorter.php?category=study">Study</a></li>
+                               <li><a href="sorter.php?category=mingle">Mingle</a></li>
+                               <li><a href="sorter.php?category=economical">Economical</a></li>
+                               <li><a href="sorter.php?category=random">Random</a></li>
+                               <li><a href="sorter.php?category=all">All</a></li>
+                           </ul>
+                       </li>
+
+                      <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <?php
                           if (isset($_SESSION['user_id']) && isset($_SESSION['name'])){
@@ -91,8 +108,9 @@
 			</div>
 		</div>
 	</div>
+</div>
 
-		<footer class="footerstyle">
+		<footer>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-lg-12">

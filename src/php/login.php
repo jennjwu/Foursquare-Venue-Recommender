@@ -51,7 +51,7 @@
                     $_SESSION['name'] = $user_name;  
                 }
             }
-            header('Location: index.php#about');
+            header('Location: userhome.php');
         }
         else {
             $error = true;

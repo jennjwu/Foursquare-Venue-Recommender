@@ -82,7 +82,7 @@
 					echo "<div class='col-sm-12 '><i>No Address Listed</i></div>";
 				}
 				//echo "<div class='col-sm-3 header'><b>Type</b></div>";
-				echo "<div class='col-sm-10 '>$v_type</div>";//end row div
+				echo "<div class='col-sm-12 '>$v_type</div>";//end row div
 				echo "</div>
 					</div>";
 

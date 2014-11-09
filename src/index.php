@@ -46,6 +46,21 @@
 		        <li class="active"><a href="#intro">Home</a></li>
 		        <li><a href="#about">Category</a></li>
 				<li><a href="#service">Hot Place</a></li>
+
+				<li class="dropdown">
+                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Recommender<b class="caret"></b></a>
+                   <ul class="dropdown-menu">
+                       <li><a href="sorter.php?category=popular">Popular</a></li>
+                       <li><a href="sorter.php?category=special_event">Special Event</a></li>
+                       <li><a href="sorter.php?category=large_group">Large Group</a></li>
+                       <li><a href="sorter.php?category=study">Study</a></li>
+                       <li><a href="sorter.php?category=mingle">Mingle</a></li>
+                       <li><a href="sorter.php?category=economical">Economical</a></li>
+                       <li><a href="sorter.php?category=random">Random</a></li>
+                       <li><a href="sorter.php?category=all">All</a></li>
+                   </ul>
+               </li>
+
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
@@ -146,8 +161,8 @@
 				<div class="wow bounceInUp" data-wow-delay="0.8s">
                 <div class="team boxed-grey">
                     <div class="inner">
-						<h5>Party</h5>
-                        <p class="subtitle">U &amp; Friends</p>
+						<h5>Large Group</h5>
+                        <p class="subtitle">Party with Friends</p>
                         <div class="avatar">
                         	<a href="sorter.php?category=large_group">
 								<img src="img/team/group2.png" alt="" class="img-responsive img-circle" />
