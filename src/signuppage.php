@@ -185,7 +185,5 @@
    <!-- Custom Theme JavaScript -->
    <script src="js/custom.js"></script>
 
-   <script type='text/javascript' src='sort.js'></script>
-
   </body>
 </html>
