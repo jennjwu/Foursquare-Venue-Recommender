@@ -8,10 +8,6 @@
 	//database connection
 	include 'connect.php';
 
-<<<<<<< HEAD
-=======
-
->>>>>>> dev_xiaoli
   $error = false; //for invalid sign in
   $notfound = false; //for not signed up
 
@@ -54,11 +50,7 @@
                     $_SESSION['name'] = $user_name;  
                 }
             }
-<<<<<<< HEAD
             header('location: index.php#about');
-=======
-            header('Location: index.php#about');
->>>>>>> dev_xiaoli
         }
         else {
             $error = true;
@@ -72,8 +64,4 @@
       }
   }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> dev_xiaoli
 ?>
