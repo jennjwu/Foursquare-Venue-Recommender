@@ -3,8 +3,14 @@
 
 /* For Search Result*/
 div#venue-results {
+<<<<<<< HEAD
     max-height: 500px;
     overflow: scroll;
+=======
+    max-height: 600px;
+    overflow: scroll;
+    margin-bottom: 50px;
+>>>>>>> dev_xiaoli
 }
 
 div#venue-results .row-result:nth-of-type(odd) {
@@ -32,6 +38,10 @@ body {
 html {
     width: 100%;
     height: 100%;
+}
+
+.hidden_lat_lng {
+    display: none;
 }
 
 h1,
@@ -539,8 +549,8 @@ form#contact-form input:focus,form#contact-form select:focus,form#contact-form t
 ============================ */
 
 footer {
-	text-align: center;
-	padding: 50px 0 ;
+    text-align: center;
+    padding: 50px 0 ;
     display: block;
 }
 
@@ -711,7 +721,7 @@ Parallax
 }
 
 #map {
-	height: 500px;
+	height: 600px;
 }
 
 

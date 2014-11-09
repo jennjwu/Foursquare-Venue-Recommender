@@ -55,8 +55,13 @@
 		
 		if ($num_rows > 0) {
 			while($i = mysqli_fetch_array($results)) {
+<<<<<<< HEAD:src/php/queries.php
 				echo "<div class='row bg-info row-result'>
 						<div class='col-sm-10'>
+=======
+				echo "<div class='well'>
+						<div class=''>
+>>>>>>> dev_xiaoli:src/php/queries.php
 							<div class='row'>";
 				$v_id = $i['Venue_ID'];
 				$v_name = $i['Name'];
@@ -70,6 +75,7 @@
 				//echo "<div class='col-sm-3 header'><b>Venue ID</b></div>";
 				//echo "<div class='col-sm-9 answer'>$v_id</div>";
 				//echo "<div class='col-sm-3 header'><b>Name</b></div>";
+<<<<<<< HEAD:src/php/queries.php
 				echo "<div class='col-sm-12 answer'><h4>$v_name</h4></div>";
 				if ($v_add != null && $v_zip != null) {
 					//echo "<div class='col-sm-3 header'><b>Address</b></div>";
@@ -89,11 +95,38 @@
 					<a href='#'><i class='fa fa-angle-double-right fa-5x'></i></a>
 					</div>";
 	
+=======
+				echo "<div class='col-sm-12 '><a href='#'><h4>$v_name</h4></a></div>";
+				if ($v_add != null && $v_zip != null) {
+					//echo "<div class='col-sm-3 header'><b>Address</b></div>";
+					echo "<div class='col-sm-12 '>$v_add</div>";
+					//echo "<div class='col-sm-3 header'><b>Zip</b></div>";
+					echo "<div class='col-sm-12 '>$v_zip</div>";
+				}
+				else {
+					//echo "<div class='col-sm-3 header'><b>Address</b></div>";
+					echo "<div class='col-sm-12 '><i>No Address Listed</i></div>";
+				}
+				//echo "<div class='col-sm-3 header'><b>Type</b></div>";
+				echo "<div class='col-sm-10 '>$v_type</div>";//end row div
+				echo "</div>
+					</div>";
+
+>>>>>>> dev_xiaoli:src/php/queries.php
 				//echo "<td>" . $v_lat . "</td>";
 				//echo "<td>" . $v_long . "</td>";
 				//echo "<td>" . $rating . "</td>";
 				//echo "<td>" . $v_likes . "</td>";
 				echo "</div>";
+
+                //hidden lat and lng
+                echo "<div class='hidden_lat_lng'>
+                        <div class='lat'>$v_lat</div>
+                        <div class='long'>$v_long</div>
+
+                        </div>";
+
+
 			}
 		}//end if
 		else {

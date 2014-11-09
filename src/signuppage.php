@@ -68,7 +68,11 @@
      </section>
 
 
+<<<<<<< HEAD
    <div class="container">
+=======
+      <div class="container">
+>>>>>>> dev_xiaoli
 		<div class="row">
 
 			<div class="col-md-6 col-md-offset-3">
@@ -164,9 +168,16 @@
 			</div>
 		</div>
 	</div>
+<<<<<<< HEAD
 
 
    <footer class="footerstyle">
+=======
+   </div>
+
+
+   <footer>
+>>>>>>> dev_xiaoli
        <div class="container">
            <div class="row">
                <div class="col-md-12 col-lg-12">
@@ -185,5 +196,9 @@
    <!-- Custom Theme JavaScript -->
    <script src="js/custom.js"></script>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev_xiaoli
   </body>
 </html>
