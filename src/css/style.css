@@ -846,3 +846,8 @@ Parallax
 	}
 	
 }
+
+/* FS detail page  */
+#FS_ID {
+    display: none;
+}
