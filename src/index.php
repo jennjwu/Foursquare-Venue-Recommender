@@ -54,7 +54,7 @@
 		      			echo $_SESSION['name'];
 		      			echo "<b class='caret'></b></a>
 					          <ul class='dropdown-menu'>
-					            <li><a href='#'>User Home</a></li>
+					            <li><a href='userhome.php'>User Home</a></li>
 					            <li><a href='#'>Account Management</a></li>
 					            <li><a href='php/logout.php'>Logout</a></li>
 					          </ul>";
