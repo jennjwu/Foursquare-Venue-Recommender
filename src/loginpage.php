@@ -34,7 +34,7 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="index.php">
                         <h1>FourU</h1>
                     </a>
                 </div>
@@ -46,7 +46,7 @@
                        <li><a href="index.php#about">Category</a></li>
                        <li><a href="index.php#service">Hot Place</a></li>
                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Personalize
+                          <a href="#" class="dropdown-toggle active" data-toggle="dropdown">Personalize
                             <b class="caret"></b></a>
                           <ul class="dropdown-menu">
                             <li><a href="loginpage.php">Login</a></li>
@@ -119,27 +119,26 @@
                                       </div>";
                             }
                         ?>
-                        <div class="form-group">
+                        <div class="form-group text-center">
                             <button type="submit" class="btn btn-default btn-success btn-lg">Login</button>
                         </div>
                     </form>
                     <div>
-                        <p>Don't have an account? <a href="signuppage.php">Sign up</a>!</p>
+                        <p class='text-center'>Don't have an account?<br> 
+                            <a href="signuppage.php"> Sign up</a>!</p>
                     </div>
                 </div>
             </div>
-
         </div>
       </div>
 
-        <footer>
+        <footer class="footerstyle">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-lg-12">
                         <p>&copy;2014 - FourU. All rights reserved.</p>
-                        <p>Team 9, CMPE 226, Fall 2014, SJSU</p>
                     </div>
-                </div>
+                </div> 
             </div>
         </footer>
 
@@ -153,9 +152,5 @@
         <script src="js/custom.js"></script>
 
         <script type='text/javascript' src='sort.js'></script>
-
-
 	</body>
-
-
 </html>

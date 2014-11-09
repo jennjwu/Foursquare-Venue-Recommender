@@ -101,7 +101,7 @@
 
 	<div class='container' id='results'>	
 		<div class='row'>
-			<div class='col-sm-6'>
+			<div class='col-sm-6' id='venue-results'>
 			<?php
 				//call function to get queries based on criteria
 				include 'php/queries.php';
@@ -109,7 +109,7 @@
 			?>
 			</div>
 			<div class='col-sm-6'>
-				<div class='callout callout-warning'>
+				<div class>
 					<img alt='Placeholder for Google Map' height='500' width='500'>
 				</div>
 			</div>
