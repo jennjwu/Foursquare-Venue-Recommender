@@ -60,8 +60,14 @@
                    <li><a href="index.html">Home</a></li>
                    <li><a href="index.html#about">Category</a></li>
                    <li><a href="index.html#service">Hot Place</a></li>
-                   <li><a href="loginpage.php">Login</a></li>
-                   <li class="active"><a href="signuppage.php">Sign Up</a></li>
+                   <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Personalize
+                        <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="loginpage.php">Login</a></li>
+                        <li><a href="signuppage.php">Sign Up</a></li>
+                      </ul>
+                   </li>
                </ul>
            </div>
            <!-- /.navbar-collapse -->
@@ -69,59 +75,53 @@
        <!-- /.container -->
    </nav>
 
-
-   <div class="wrapper">
-       <!-- Section: sign up -->
-       <section class="home-section1 text-center" style="padding: 10px">
-           <div class='section-heading'>
-               <h1>FourU sign up</h1>
-           </div>
-       </section>
-
-
-       <div class="container">
-           <div class="row">
-
-               <div class="col-md-6 col-md-offset-3">
-                   <form class="form-horizontal" role="form" action="login.php" method="post"
-                         enctype="application/x-www-form-urlencoded">
-                       <div class="form-group">
-                           <input type="number" class="form-control input-lg" id="zipcode"
-                                  placeholder="Zipcode">
-                       </div>
-                       <div class="form-group">
-                           <input type="email" class="form-control input-lg" id="email"
-                                  placeholder="Email">
-                       </div>
-                       <div class="form-group">
-                           <input type="password" class="form-control input-lg" id="inputPassword3"
-                                  placeholder="Password">
-                       </div>
-                       <div class="form-group">
-                           <input type="password" class="form-control input-lg" id="inputPassword3"
-                                  placeholder="Confirm Password">
-                       </div>
-                       <div class="form-group">
-                           <button type="submit" class="btn btn-default btn-success btn-lg">Sign in</button>
-                       </div>
-                   </form>
-                   <div>
-                       <p>Already have an account? <a href="loginpage.php">Login</a>!</p>
-                   </div>
-               </div>
-           </div>
+   <!-- Section: sign up -->
+   <section class="home-section1 text-center" style="padding: 10px">
+       <div class='section-heading'>
+            <h1>FourU sign up</h1>
        </div>
-
-   </div>
-
+   </section>
 
 
-   <footer>
+   <div class="container">
+		<div class="row">
+
+			<div class="col-md-6 col-md-offset-3">
+				<form class="form-horizontal" role="form" action="login.php" method="post"
+					enctype="application/x-www-form-urlencoded">
+					<div class="form-group">
+						<input type="number" class="form-control input-lg" id="zipcode" 
+							placeholder="Zipcode">
+					</div>
+					<div class="form-group">
+						<input type="email" class="form-control input-lg" id="email" 
+							placeholder="Email">
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control input-lg" id="inputPassword3"
+							placeholder="Password">
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control input-lg" id="inputPassword3"
+							placeholder="Confirm Password">
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-default btn-success btn-lg">Sign in</button>
+					</div>
+				</form>
+				<div>
+					<p>Already have an account? <a href="loginpage.php">Login</a>!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+   <footer class="footerstyle">
        <div class="container">
            <div class="row">
                <div class="col-md-12 col-lg-12">
-                   <p>&copy;2014 - FourU. All rights reserved.</p>
-                   <p>Team 9, CMPE 226, Fall 2014, SJSU</p>
+                   <p>&copy; 2014 - FourU. All rights reserved.</p>
                </div>
            </div>
        </div>
