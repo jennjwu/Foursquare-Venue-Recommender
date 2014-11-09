@@ -17,7 +17,7 @@
       $user_password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
 
       //query database for matching password
-      $sql = "SELECT * from accounts WHERE email='".$user_email."'";
+      $sql = "SELECT * from accounts WHERE email='".$user_email."';";
       //echo $sql;
       $results = mysqli_query($con, $sql);
       //echo mysqli_num_rows($results);
@@ -32,12 +32,12 @@
             $error = false;
             $notfound = false;
             echo "<p>Authenticated!</p>";
-            $stmt = "UPDATE Accounts SET last_login = now() where login_id = $login_id";
+            $stmt = "UPDATE Accounts SET last_login = now() where login_id = $login_id;";
             if (!mysqli_query($con, $stmt)) {
                 echo "<p class=text-center text-danger'>System Error</p>";
             }
             else {
-                $sql = "SELECT name from User where user_id=$login_id";
+                $sql = "SELECT name from User where user_id=$login_id;";
                 $results = mysqli_query($con,$sql);
                 if (mysqli_num_rows($results) != 1) {
                     echo "<p class=text-center text-danger'>System Error</p>";
