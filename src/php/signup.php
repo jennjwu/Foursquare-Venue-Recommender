@@ -9,6 +9,8 @@
 	include 'connect.php';
 
 	$pw_mismatch = false;
+	$existing = false;
+
 	if (isset($_POST['user_name']) && isset($_POST['zipcode']) && isset($_POST['email']) && 
 			isset($_POST['password']) && isset($_POST['password_confirm']) ){
 		
@@ -23,6 +25,12 @@
 		}
 		else {//passwords match
 			//add check to see if user with same email already exists
+			$sql = "SELECT * from accounts where email='".$user_email."';";
+			$results = mysqli_query($con,$sql);
+			if (mysqli_num_rows($results) > 0) {
+				$existing = true;
+				return; //skip rest of this
+			}
 
       		//add new entry to accounts table
       		$stmt = "INSERT INTO accounts (email, password, last_login) VALUES('".$user_email."','".
@@ -38,7 +46,7 @@
                     echo "<p class=text-center text-danger'>System Error 2</p>";
                 }
                 else {
-                	//get user_id (auto-increment)
+                	//get user_id (auto-increment from accounts table)
                     $row = mysqli_fetch_assoc($results);
                     $user_id = $row["login_id"];
 

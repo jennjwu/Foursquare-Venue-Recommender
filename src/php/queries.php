@@ -11,30 +11,23 @@
 		switch($case) {
 			case 'popular':
 				$sql = "SELECT * FROM Venue natural join Amenities where rating > 7 and likes > 50;";
-				echo "<div class='bg-info'>";
 				break;
 			case 'special_event':
 				$sql = "SELECT * FROM Venue natural join Amenities where reservations = 'Y' and events_count = 0;";
-				echo "<div class='bg-info'>";
 				break;
 			case 'mingle':
 				$sql = "SELECT * FROM Venue natural join Amenities where alcohol='Y' or menus like '%Happy Hour%' or Venue_type like '%Bar%';";
-				echo "<div class='bg-info'>";
 				break;
 			case 'economical':
 				$sql = "SELECT * FROM Venue natural join Amenities where price='$';";
-				echo "<div class='bg-info'>";
 				break;
 			case 'study':
 				$sql = "SELECT * FROM Venue natural join Amenities where (venue_type like '%Coffee%' or venue_type like '%Cafe%') and wifi = 'Y';";
-				echo "<div class='bg-info'>";
 				break;
 			case 'large_group':
 				$sql = "SELECT * FROM Venue natural join Amenities where reservations = 'Y' or venue_type like '%Restaurant%';";
-				echo "<div class='bg-info'>";
 				break;
 			case 'random':
-				echo "<div class='bg-info'>";
 				/*For random picker logic*/
 				$sql1 = "SELECT Venue_ID from Venue"; //select all venue IDs in db
 				$results1 = mysqli_query($con, $sql1);
@@ -55,16 +48,16 @@
 				break;
 			case 'all':
 				$sql = "SELECT * from Venue natural join Amenities;";
-				echo "<div class='bg-info'>";
 				break;
 		}
-
 		$results = mysqli_query($con, $sql);
 		$num_rows = $results->num_rows;
 		
 		if ($num_rows > 0) {
 			while($i = mysqli_fetch_array($results)) {
-				echo "<div class='row'>";
+				echo "<div class='row bg-info row-result'>
+						<div class='col-sm-10'>
+							<div class='row'>";
 				$v_id = $i['Venue_ID'];
 				$v_name = $i['Name'];
 				$v_add = $i['Address'];
@@ -74,24 +67,28 @@
 				$v_type = $i['Venue_Type'];
 				$rating = $i['Rating'];
 				$v_likes = $i['Likes'];
-				echo "<div class='col-sm-3 header'><b>Venue ID</b></div>";
-				echo "<div class='col-sm-9 answer'>$v_id</div>";
-				echo "<div class='col-sm-3 header'><b>Name</b></div>";
-				echo "<div class='col-sm-9 answer'>$v_name</div>";
+				//echo "<div class='col-sm-3 header'><b>Venue ID</b></div>";
+				//echo "<div class='col-sm-9 answer'>$v_id</div>";
+				//echo "<div class='col-sm-3 header'><b>Name</b></div>";
+				echo "<div class='col-sm-12 answer'><h4>$v_name</h4></div>";
 				if ($v_add != null && $v_zip != null) {
-					echo "<div class='col-sm-3 header'><b>Address</b></div>";
-					echo "<div class='col-sm-9 answer'>$v_add</div>";	
-					echo "<div class='col-sm-3 header'><b>Zip</b></div>";
-					echo "<div class='col-sm-9 answer'>$v_zip</div>";
+					//echo "<div class='col-sm-3 header'><b>Address</b></div>";
+					echo "<div class='col-sm-12 answer'>$v_add</div>";	
+					//echo "<div class='col-sm-3 header'><b>Zip</b></div>";
+					echo "<div class='col-sm-12 answer'>$v_zip</div>";
 				}
 				else {
-					echo "<div class='col-sm-3 header'><b>Address</b></div>";
-					echo "<div class='col-sm-9 answer'><i>No Address Listed</i></div>";	
+					//echo "<div class='col-sm-3 header'><b>Address</b></div>";
+					echo "<div class='col-sm-12 answer'><i>No Address Listed</i></div>";	
 				}
-				echo "<div class='col-sm-3 header'><b>Type</b></div>";
-				echo "<div class='col-sm-9 answer'>$v_type</div>";
-				
-				
+				//echo "<div class='col-sm-3 header'><b>Type</b></div>";
+				echo "<div class='col-sm-12 answer'>$v_type</div>
+					</div>
+					</div>";//end row div
+				echo "<div class='col-sm-2'><br>
+					<a href='#'><i class='fa fa-angle-double-right fa-5x'></i></a>
+					</div>";
+	
 				//echo "<td>" . $v_lat . "</td>";
 				//echo "<td>" . $v_long . "</td>";
 				//echo "<td>" . $rating . "</td>";
@@ -102,8 +99,7 @@
 		else {
 			echo "<p>No venues match your criteria.</p>";
 		}
-		echo "</div>";
-		mysqli_close($con);//close connection go db
+		mysqli_close($con);//close connection to db
 	}//end function get_query()
 
 	function call_queries() {
@@ -139,7 +135,7 @@
 			}//end switch
 		}//end if isset
 		else {
-			echo "<div class='callout callout-danger'><h5>Please select an outing type!</h5></div>";
+			echo "<div class='text-danger'><h5>Please select an outing type!</h5></div>";
 			
 		}
 	}
