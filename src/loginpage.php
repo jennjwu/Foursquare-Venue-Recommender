@@ -85,13 +85,6 @@
                 </div>
             </section>
 
-        <!-- Section: sign in -->
-        <section class="home-section1 text-center">
-            <div class='section-heading'>
-                <h1>FourU Login</h1>
-            </div>
-        </section>
-
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
@@ -152,6 +145,7 @@
             </div>
 
         </div>
+      </div>
 
         <footer>
             <div class="container">
