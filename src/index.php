@@ -23,6 +23,7 @@
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 	<!-- Preloader -->
+	<?php session_start(); ?>
 	<div id="preloader">
 	  <div id="load"></div>
 	</div>
@@ -33,45 +34,44 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     <h1>FourU</h1>
                 </a>
             </div>
 
+
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">       
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#intro">Home</a></li>
-        <!--<li class="dropdown">
-        	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          		Categories<b class="caret"></b>
-          	</a>
-          	<ul class="dropdown-menu">
-	            <li><a href="sorter.php?category=popular">Popular</a></li>
-	            <li><a href="sorter.php?category=special_event">Special Event</a></li>
-	            <li><a href="sorter.php?category=large_group">Party</a></li>
-	            <li><a href="sorter.php?category=study">Study</a></li>
-	            <li><a href="sorter.php?category=mingle">Mingle</a></li>
-	            <li><a href="sorter.php?category=economical">Economical</a></li>
-	            <li><a href="sorter.php?category=random">Random</a></li>
-	            <li><a href="sorter.php?category=all">All</a></li>
-          	</ul>
-        </li>-->
-        <li><a href="#about">Category</a></li>
-		<li><a href="#service">Hot Place</a></li>
-		<!--<li><a href="loginpage.php">Login</a></li>
-		  <li><a href="signuppage.php">Sign Up</a></li>-->
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Personalize
-          	<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="loginpage.php">Login</a></li>
-            <li><a href="signuppage.php">Sign Up</a></li>
-          </ul>
-        </li>
-      </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="#intro">Home</a></li>
+		        <li><a href="#about">Category</a></li>
+				<li><a href="#service">Hot Place</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+				<?php
+		      		if (isset($_SESSION['user_id']) && isset($_SESSION['name'])){
+		      			echo $_SESSION['name'];
+		      			echo "<b class='caret'></b></a>
+					          <ul class='dropdown-menu'>
+					            <li><a href='userhome.php'>User Home</a></li>
+					            <li><a href='#'>Account Management</a></li>
+					            <li><a href='php/logout.php'>Logout</a></li>
+					          </ul>";
+		      		}
+		      		else {
+						echo "Personalize
+							  <b class='caret'></b></a>
+					          <ul class='dropdown-menu'>";
+		          		echo "<li><a href='loginpage.php'>Login</a></li>
+							  <li><a href='signuppage.php'>Sign Up</a></li>
+							  </ul>";
+		      		}
+		      	?>
+		      	</li>
+		    </ul>
+          </div>
+          <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
@@ -172,9 +172,7 @@
                 </div>
 				</div>
             </div>
-         </div>
 
-        <div class="row">
 			<div class="col-xs-6 col-sm-3 col-md-3">
 				<div class="wow bounceInUp" data-wow-delay="1.2s">
 				<div class="team boxed-grey">
@@ -264,7 +262,6 @@
 				<hr class="marginbot-50">
 			</div>
 		</div>
-
         <div class="row">
             <div class="col-sm-3 col-md-3">
 				<div class="wow fadeInLeft" data-wow-delay="0.2s">

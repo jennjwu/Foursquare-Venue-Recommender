@@ -1,6 +1,25 @@
 /* ==== Google font ==== */
 @import url('http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Montserrat:700|Merriweather:400italic');
 
+/* For Search Result*/
+div#venue-results {
+    max-height: 600px;
+    overflow: scroll;
+    margin-bottom: 50px;
+}
+
+div#venue-results .row-result:nth-of-type(odd) {
+    background-color: #67b0d1;
+    color: white;
+}
+
+div#venue-results .row-result:nth-of-type(odd) i{
+    color:white;
+}
+
+div#venue-results .row-result:nth-of-type(odd) i:hover{
+    color:#176e61;
+}
 
 body {
     width: 100%;
@@ -14,6 +33,10 @@ body {
 html {
     width: 100%;
     height: 100%;
+}
+
+.hidden_lat_lng {
+    display: none;
 }
 
 h1,
@@ -530,8 +553,8 @@ form#contact-form input:focus,form#contact-form select:focus,form#contact-form t
 }
 
 footer {
-	text-align: center;
-	padding: 50px 0 ;
+    text-align: center;
+    padding: 50px 0 ;
     display: block;
     bottom: 0;
 }
@@ -540,6 +563,15 @@ footer p {
 	color: #f8f8f8;
 }
 
+/* footer style for static page*/
+.footerstyle {
+    ext-align: center;
+    padding: 50px 0 ;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+}
 
 /* ==========================
 Parallax
@@ -694,7 +726,7 @@ Parallax
 }
 
 #map {
-	height: 500px;
+	height: 600px;
 }
 
 
