@@ -69,46 +69,51 @@
        <!-- /.container -->
    </nav>
 
-   <!-- Section: sign up -->
-   <section class="home-section1 text-center" style="padding: 10px">
-       <div class='section-heading'>
-            <h1>FourU sign up</h1>
+
+   <div class="wrapper">
+       <!-- Section: sign up -->
+       <section class="home-section1 text-center" style="padding: 10px">
+           <div class='section-heading'>
+               <h1>FourU sign up</h1>
+           </div>
+       </section>
+
+
+       <div class="container">
+           <div class="row">
+
+               <div class="col-md-6 col-md-offset-3">
+                   <form class="form-horizontal" role="form" action="login.php" method="post"
+                         enctype="application/x-www-form-urlencoded">
+                       <div class="form-group">
+                           <input type="number" class="form-control input-lg" id="zipcode"
+                                  placeholder="Zipcode">
+                       </div>
+                       <div class="form-group">
+                           <input type="email" class="form-control input-lg" id="email"
+                                  placeholder="Email">
+                       </div>
+                       <div class="form-group">
+                           <input type="password" class="form-control input-lg" id="inputPassword3"
+                                  placeholder="Password">
+                       </div>
+                       <div class="form-group">
+                           <input type="password" class="form-control input-lg" id="inputPassword3"
+                                  placeholder="Confirm Password">
+                       </div>
+                       <div class="form-group">
+                           <button type="submit" class="btn btn-default btn-success btn-lg">Sign in</button>
+                       </div>
+                   </form>
+                   <div>
+                       <p>Already have an account? <a href="loginpage.php">Login</a>!</p>
+                   </div>
+               </div>
+           </div>
        </div>
-   </section>
 
+   </div>
 
-   <div class="container">
-		<div class="row">
-
-			<div class="col-md-6 col-md-offset-3">
-				<form class="form-horizontal" role="form" action="login.php" method="post"
-					enctype="application/x-www-form-urlencoded">
-					<div class="form-group">
-						<input type="number" class="form-control input-lg" id="zipcode" 
-							placeholder="Zipcode">
-					</div>
-					<div class="form-group">
-						<input type="email" class="form-control input-lg" id="email" 
-							placeholder="Email">
-					</div>
-					<div class="form-group">
-						<input type="password" class="form-control input-lg" id="inputPassword3"
-							placeholder="Password">
-					</div>
-					<div class="form-group">
-						<input type="password" class="form-control input-lg" id="inputPassword3"
-							placeholder="Confirm Password">
-					</div>
-					<div class="form-group">
-						<button type="submit" class="btn btn-default btn-success btn-lg">Sign in</button>
-					</div>
-				</form>
-				<div>
-					<p>Already have an account? <a href="loginpage.php">Login</a>!</p>
-				</div>
-			</div>
-		</div>
-	</div>
 
 
    <footer>
