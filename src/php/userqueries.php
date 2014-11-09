@@ -15,8 +15,8 @@
 
 		if ($num_rows > 0) {
 			while($i = mysqli_fetch_array($results)) {
-				echo "<div class='row bg-info row-result'>
-						<div class='col-sm-10'>
+				echo "<div class='well'>
+						<div class=''>
 							<div class='row'>";
 				$v_id = $i['Venue_ID'];
 				$u_date = $i['Date_Visiting'];
@@ -24,7 +24,7 @@
 				$v_add = $i['Address'];
 				$v_zip = $i['ZipCode'];
 				$v_type = $i['Venue_Type'];
-				echo "<div class='col-sm-12 answer'><h4>$v_name";
+				echo "<div class='col-sm-12 answer'><a href='#'><h4>$v_name</a>";
 				if ($u_date != null) {
 					echo "<br>Date: $u_date</h4></div>";
 				}
@@ -46,9 +46,6 @@
 				echo "<div class='col-sm-12 answer'>$v_type</div>
 					</div>
 					</div>";//end row div
-				echo "<div class='col-sm-2'><br>
-					<a href='#'><i class='fa fa-angle-double-right fa-5x'></i></a>
-					</div>";
 	
 				//echo "<td>" . $v_lat . "</td>";
 				//echo "<td>" . $v_long . "</td>";

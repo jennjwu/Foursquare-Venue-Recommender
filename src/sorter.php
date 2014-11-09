@@ -29,7 +29,8 @@
 
    	<body>
       <?php session_start(); ?>
-   	<nav class="navbar navbar-custom navbar-fixed-top top-nav" role="navigation">
+      <div class="wrapper">
+   	    <nav class="navbar navbar-custom navbar-fixed-top top-nav" role="navigation">
            <div class="container">
                <div class="navbar-header">
                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
@@ -53,7 +54,7 @@
                            <ul class="dropdown-menu">
                                <li><a href="sorter.php?category=popular">Popular</a></li>
                                <li><a href="sorter.php?category=special_event">Special Event</a></li>
-                               <li><a href="sorter.php?category=large_group">Party</a></li>
+                               <li><a href="sorter.php?category=large_group">Large Group</a></li>
                                <li><a href="sorter.php?category=study">Study</a></li>
                                <li><a href="sorter.php?category=mingle">Mingle</a></li>
                                <li><a href="sorter.php?category=economical">Economical</a></li>
@@ -92,7 +93,7 @@
         </nav>
 
 
-    <div class="wrapper">
+    
 
         <section class="home-section1 text-center">
             <div class='section-heading'>
