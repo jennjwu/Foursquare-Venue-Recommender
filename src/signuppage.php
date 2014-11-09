@@ -60,8 +60,19 @@
                    <li><a href="index.html">Home</a></li>
                    <li><a href="index.html#about">Category</a></li>
                    <li><a href="index.html#service">Hot Place</a></li>
+<<<<<<< HEAD
                    <li><a href="loginpage.php">Login</a></li>
                    <li class="active"><a href="signuppage.php">Sign Up</a></li>
+=======
+                   <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Personalize
+                        <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="loginpage.php">Login</a></li>
+                        <li><a href="signuppage.php">Sign Up</a></li>
+                      </ul>
+                   </li>
+>>>>>>> add login function (extra index.php to handle session)
                </ul>
            </div>
            <!-- /.navbar-collapse -->

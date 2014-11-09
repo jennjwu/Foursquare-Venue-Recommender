@@ -28,8 +28,7 @@
     </head>
 
     <body>
-
-            <!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
                     <li><a href="home.php">Home</a></li>
@@ -56,19 +55,25 @@
                     </a>
                 </div>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse navbar-right navbar-main-collapse" style="background-color: rgb(103, 176, 209)">
-                    <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#about">Category</a></li>
-                        <li><a href="index.html#service">Hot Place</a></li>
-                        <li class="active"><a href="loginpage.php">Login</a></li>
-                        <li><a href="signuppage.php">Sign Up</a></li>
-
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container -->
+               <!-- Collect the nav links, forms, and other content for toggling -->
+               <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                   <ul class="nav navbar-nav">
+                       <li><a href="index.html">Home</a></li>
+                       <li><a href="index.html#about">Category</a></li>
+                       <li><a href="index.html#service">Hot Place</a></li>
+                       <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Personalize
+                            <b class="caret"></b></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="loginpage.php">Login</a></li>
+                            <li><a href="signuppage.php">Sign Up</a></li>
+                          </ul>
+                      </li>
+                   </ul>
+               </div>
+               <!-- /.navbar-collapse -->
+           </div>
+           <!-- /.container -->
         </nav>
 
         <div class="wrapper">
@@ -80,25 +85,68 @@
                 </div>
             </section>
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
-                        <form class="form-horizontal" role="form" action="signup.php" method="post">
-                            <div class="form-group">
-                                <input type="email" class="form-control input-lg" id="email"
-                                       placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control input-lg" id="inputPassword3"
-                                       placeholder="Password">
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-default btn-success btn-lg">Sign in</button>
-                            </div>
-                        </form>
-                        <div>
-                            <p>Don't have an account? <a href="signuppage.php">Sign up</a>!</p>
+        <!-- Section: sign in -->
+        <section class="home-section1 text-center">
+            <div class='section-heading'>
+                <h1>FourU Login</h1>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div id="validate">
+                      <?php
+                          include 'login.php';
+                          if ($error) {
+                              echo "<h5 class='text-danger text-center'>Your email and password combination do not match. Please try again.</h5>";
+                          }
+                          else if ($notfound) {
+                              echo "<h5 class='text-danger text-center'>Your email address cannot be found in FourU. <br>Have you signed up?</h5>";   
+                          }
+                      ?>
+                  </div>
+                    <form class="form-horizontal" role="form" action="loginpage.php" method="post">
+                        <?php
+                            if ($notfound) {
+                                echo "<div class='form-group has-error'>
+                                        <input type='email' class='form-control input-lg' name='email'
+                                            placeholder='Email'>
+                                    </div>";        
+                            }
+                            else if ($error) {
+                                echo "<div class='form-group'>
+                                        <input type='email' class='form-control input-lg' name='email' value='$user_email'
+                                            placeholder='Email'>
+                                    </div>";
+                            }
+                            else {
+                                echo "<div class='form-group'>
+                                        <input type='email' class='form-control input-lg' name='email'
+                                            placeholder='Email'>
+                                    </div>";   
+                            }
+                        ?>
+                        <?php 
+                            if($error || $notfound) {
+                                echo "<div class='form-group has-error'>
+                                      <input type='password' class='form-control input-lg' name='password'
+                                          placeholder='Password'>
+                                      </div>";
+                            }
+                            else {
+                              echo "<div class='form-group'>
+                                      <input type='password' class='form-control input-lg' name='password'
+                                          placeholder='Password'>
+                                      </div>";
+                            }
+                        ?>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-default btn-success btn-lg">Login</button>
                         </div>
+                    </form>
+                    <div>
+                        <p>Don't have an account? <a href="signuppage.php">Sign up</a>!</p>
                     </div>
                 </div>
             </div>
