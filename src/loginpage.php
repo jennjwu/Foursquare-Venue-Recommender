@@ -45,15 +45,15 @@
             </div>
         </nav>-->
         <nav class="navbar navbar-custom navbar-fixed-top top-nav" role="navigation">
-           <div class="container">
-               <div class="navbar-header">
-                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                       <i class="fa fa-bars"></i>
-                   </button>
-                   <a class="navbar-brand" href="index.html">
-                       <h1>FourU</h1>
-                   </a>
-               </div>
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        <h1>FourU</h1>
+                    </a>
+                </div>
 
                <!-- Collect the nav links, forms, and other content for toggling -->
                <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
@@ -76,6 +76,14 @@
            <!-- /.container -->
         </nav>
 
+        <div class="wrapper">
+            <!-- Section: sign in -->
+            <br/>
+            <section class="home-section1 text-center">
+                <div class='section-heading'>
+                    <h1>FourU Login</h1>
+                </div>
+            </section>
 
         <!-- Section: sign in -->
         <section class="home-section1 text-center">
@@ -142,13 +150,15 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
-        <footer class="footerstyle">
+        <footer>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-lg-12">
-                        <p>&copy; 2014 - FourU. All rights reserved.</p>
+                        <p>&copy;2014 - FourU. All rights reserved.</p>
+                        <p>Team 9, CMPE 226, Fall 2014, SJSU</p>
                     </div>
                 </div>
             </div>
@@ -164,6 +174,9 @@
         <script src="js/custom.js"></script>
 
         <script type='text/javascript' src='sort.js'></script>
+
+
 	</body>
+
 
 </html>
