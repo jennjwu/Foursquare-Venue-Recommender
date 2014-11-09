@@ -8,6 +8,7 @@
 	//database connection
 	include 'connect.php';
 
+
   $error = false; //for invalid sign in
   $notfound = false; //for not signed up
 
@@ -50,7 +51,7 @@
                     $_SESSION['name'] = $user_name;  
                 }
             }
-            header('location: index.php#about');
+            header('Location: index.php#about');
         }
         else {
             $error = true;
@@ -63,5 +64,6 @@
           $error = false; //not invalid sign in
       }
   }
+
 
 ?>

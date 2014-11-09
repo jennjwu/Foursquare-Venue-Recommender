@@ -68,7 +68,7 @@
      </section>
 
 
-   <div class="container">
+      <div class="container">
 		<div class="row">
 
 			<div class="col-md-6 col-md-offset-3">
@@ -164,13 +164,15 @@
 			</div>
 		</div>
 	</div>
+   </div>
 
 
-   <footer class="footerstyle">
+   <footer>
        <div class="container">
            <div class="row">
                <div class="col-md-12 col-lg-12">
-                   <p>&copy; 2014 - FourU. All rights reserved.</p>
+                   <p>&copy;2014 - FourU. All rights reserved.</p>
+                   <p>Team 9, CMPE 226, Fall 2014, SJSU</p>
                </div>
            </div>
        </div>
@@ -184,6 +186,7 @@
    <script src="js/wow.min.js"></script>
    <!-- Custom Theme JavaScript -->
    <script src="js/custom.js"></script>
+
 
   </body>
 </html>

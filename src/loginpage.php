@@ -69,76 +69,77 @@
                 </div>
             </section>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <div id="validate">
-                      <?php
-                          include 'php/login.php';
-                          if ($error) {
-                              echo "<h5 class='text-danger text-center'>Your email and password combination do not match. Please try again.</h5>";
-                          }
-                          else if ($notfound) {
-                              echo "<h5 class='text-danger text-center'>Your email address cannot be found in FourU. <br>Have you 
-                                <a href='signuppage.php'>signed up</a>?</h5>";   
-                          }
-                      ?>
-                  </div>
-                    <form class="form-horizontal" role="form" action="loginpage.php" method="post">
-                        <?php
-                            if ($notfound) {
-                                echo "<div class='form-group has-error'>
-                                        <input type='email' class='form-control input-lg' name='email'
-                                            placeholder='Email' required='required'>
-                                    </div>";        
-                            }
-                            else if ($error) {
-                                echo "<div class='form-group'>
-                                        <input type='email' class='form-control input-lg' name='email' value='$user_email'
-                                            placeholder='Email' required='required'>
-                                    </div>";
-                            }
-                            else {
-                                echo "<div class='form-group'>
-                                        <input type='email' class='form-control input-lg' name='email'
-                                            placeholder='Email' required='required'>
-                                    </div>";   
-                            }
-                        ?>
-                        <?php 
-                            if($error || $notfound) {
-                                echo "<div class='form-group has-error'>
-                                      <input type='password' class='form-control input-lg' name='password'
-                                          placeholder='Password' required='required'>
-                                      </div>";
-                            }
-                            else {
-                              echo "<div class='form-group'>
-                                      <input type='password' class='form-control input-lg' name='password'
-                                          placeholder='Password' required='required'>
-                                      </div>";
-                            }
-                        ?>
-                        <div class="form-group text-center">
-                            <button type="submit" class="btn btn-default btn-success btn-lg">Login</button>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div id="validate">
+                          <?php
+                              include 'php/login.php';
+                              if ($error) {
+                                  echo "<h5 class='text-danger text-center'>Your email and password combination do not match. Please try again.</h5>";
+                              }
+                              else if ($notfound) {
+                                  echo "<h5 class='text-danger text-center'>Your email address cannot be found in FourU. <br>Have you
+                                    <a href='signuppage.php'>signed up</a>?</h5>";
+                              }
+                          ?>
+                      </div>
+                        <form class="form-horizontal" role="form" action="loginpage.php" method="post">
+                            <?php
+                                if ($notfound) {
+                                    echo "<div class='form-group has-error'>
+                                            <input type='email' class='form-control input-lg' name='email'
+                                                placeholder='Email' required='required'>
+                                        </div>";
+                                }
+                                else if ($error) {
+                                    echo "<div class='form-group'>
+                                            <input type='email' class='form-control input-lg' name='email' value='$user_email'
+                                                placeholder='Email' required='required'>
+                                        </div>";
+                                }
+                                else {
+                                    echo "<div class='form-group'>
+                                            <input type='email' class='form-control input-lg' name='email'
+                                                placeholder='Email' required='required'>
+                                        </div>";
+                                }
+                            ?>
+                            <?php
+                                if($error || $notfound) {
+                                    echo "<div class='form-group has-error'>
+                                          <input type='password' class='form-control input-lg' name='password'
+                                              placeholder='Password' required='required'>
+                                          </div>";
+                                }
+                                else {
+                                  echo "<div class='form-group'>
+                                          <input type='password' class='form-control input-lg' name='password'
+                                              placeholder='Password' required='required'>
+                                          </div>";
+                                }
+                            ?>
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-default btn-success btn-lg">Login</button>
+                            </div>
+                        </form>
+                        <div>
+                            <p class='text-center'>Don't have an account?<br>
+                                <a href="signuppage.php"> Sign up</a>!</p>
                         </div>
-                    </form>
-                    <div>
-                        <p class='text-center'>Don't have an account?<br> 
-                            <a href="signuppage.php"> Sign up</a>!</p>
                     </div>
                 </div>
             </div>
-        </div>
-      </div>
+          </div>
 
-        <footer class="footerstyle">
+        <footer>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-lg-12">
                         <p>&copy;2014 - FourU. All rights reserved.</p>
+                        <p>Team 9, CMPE 226, Fall 2014, SJSU</p>
                     </div>
-                </div> 
+                </div>
             </div>
         </footer>
 

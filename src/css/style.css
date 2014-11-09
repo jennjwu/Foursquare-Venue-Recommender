@@ -3,8 +3,9 @@
 
 /* For Search Result*/
 div#venue-results {
-    max-height: 500px;
+    max-height: 600px;
     overflow: scroll;
+    margin-bottom: 50px;
 }
 
 div#venue-results .row-result:nth-of-type(odd) {
@@ -32,6 +33,10 @@ body {
 html {
     width: 100%;
     height: 100%;
+}
+
+.hidden_lat_lng {
+    display: none;
 }
 
 h1,
@@ -538,10 +543,20 @@ form#contact-form input:focus,form#contact-form select:focus,form#contact-form t
 --- Footer
 ============================ */
 
+.wrapper {
+    min-height: 80%;
+    height: auto;
+    /* Negative indent footer by its height */
+    margin: 0 auto 0px;
+    /* Pad bottom by footer height */
+    padding: 0 0 0px;
+}
+
 footer {
-	text-align: center;
-	padding: 50px 0 ;
+    text-align: center;
+    padding: 50px 0 ;
     display: block;
+    bottom: 0;
 }
 
 footer p {
@@ -711,7 +726,7 @@ Parallax
 }
 
 #map {
-	height: 500px;
+	height: 600px;
 }
 
 
