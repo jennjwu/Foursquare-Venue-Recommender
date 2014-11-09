@@ -28,22 +28,6 @@
     </head>
 
     <body>
-        <!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container-fluid">
-                <ul class="nav navbar-nav">
-                    <li><a href="home.php">Home</a></li>
-                    <li><a href="sorter.php">Recommender</a></li>
-                </ul>
-                <div class="nav navbar-right">
-                    <a href="loginpage.php">
-                        <button type="button" class="btn btn-default navbar-btn">Login</button>
-                    </a>
-                    <a href="signuppage.php">
-                        <button type="button" class="btn btn-default navbar-btn">Sign Up</button>
-                    </a>
-                </div>
-            </div>
-        </nav>-->
         <nav class="navbar navbar-custom navbar-fixed-top top-nav" role="navigation">
             <div class="container">
                 <div class="navbar-header">
@@ -58,9 +42,9 @@
                <!-- Collect the nav links, forms, and other content for toggling -->
                <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                    <ul class="nav navbar-nav">
-                       <li><a href="index.html">Home</a></li>
-                       <li><a href="index.html#about">Category</a></li>
-                       <li><a href="index.html#service">Hot Place</a></li>
+                       <li><a href="index.php">Home</a></li>
+                       <li><a href="index.php#about">Category</a></li>
+                       <li><a href="index.php#service">Hot Place</a></li>
                        <li class="dropdown">
                           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Personalize
                             <b class="caret"></b></a>
@@ -90,7 +74,7 @@
                 <div class="col-md-6 col-md-offset-3">
                     <div id="validate">
                       <?php
-                          include 'login.php';
+                          include 'php/login.php';
                           if ($error) {
                               echo "<h5 class='text-danger text-center'>Your email and password combination do not match. Please try again.</h5>";
                           }

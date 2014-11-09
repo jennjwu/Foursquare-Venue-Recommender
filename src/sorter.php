@@ -36,31 +36,30 @@
                <!-- Collect the nav links, forms, and other content for toggling -->
                <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                    <ul class="nav navbar-nav">
-                       <li><a href="index.html">Home</a></li>
-                       <li><a href="index.html#about">Category</a></li>
-                       <li><a href="index.html#service">Hot Place</a></li>
-                       <?php
+                      <li><a href="index.php">Home</a></li>
+                      <li><a href="index.php#about">Category</a></li>
+                      <li><a href="index.php#service">Hot Place</a></li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <?php
                           if (isset($_SESSION['user_id']) && isset($_SESSION['name'])){
-                            echo "<li class='dropdown'>
-                                <a href='#' class='dropdown-toggle' data-toggle='dropdown'>";
                             echo $_SESSION['name'];
+                            echo "<b class='caret'></b></a>
+                                <ul class='dropdown-menu'>
+                                  <li><a href='#'>User Home</a></li>
+                                  <li><a href='#'>Account Management</a></li>
+                                  <li><a href='php/logout.php'>Logout</a></li>
+                                </ul>";
                           }
                           else {
+                            echo "Personalize
+                                  <b class='caret'></b></a>
+                                      <ul class='dropdown-menu'>";
                             echo "<li><a href='loginpage.php'>Login</a></li>
-                            <li><a href='signuppage.php'>Sign Up</a></li>";
-                        echo "<li class='dropdown'>
-                                <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Personalize";
+                                  <li><a href='signuppage.php'>Sign Up</a></li>
+                                  </ul>";
                           }
                         ?>
-
-
-                       <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">User Home</a></li>
-            <li><a href="#">Account Management</a></li>
-            <li><a href="#">Logout</a></li>
-          </ul>
-        </li>
                    </ul>
                </div>
                <!-- /.navbar-collapse -->
@@ -105,7 +104,7 @@
 			<div class='col-sm-6'>
 			<?php
 				//call function to get queries based on criteria
-				include 'queries.php';
+				include 'php/queries.php';
 				call_queries();
 			?>
 			</div>

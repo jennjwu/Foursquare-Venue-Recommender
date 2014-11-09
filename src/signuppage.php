@@ -57,9 +57,9 @@
            <!-- Collect the nav links, forms, and other content for toggling -->
            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                <ul class="nav navbar-nav">
-                   <li><a href="index.html">Home</a></li>
-                   <li><a href="index.html#about">Category</a></li>
-                   <li><a href="index.html#service">Hot Place</a></li>
+                   <li><a href="index.php">Home</a></li>
+                   <li><a href="index.php#about">Category</a></li>
+                   <li><a href="index.php#service">Hot Place</a></li>
                    <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Personalize
                         <b class="caret"></b></a>
