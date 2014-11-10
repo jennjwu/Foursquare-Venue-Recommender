@@ -15,6 +15,9 @@
         <!-- Fonts -->
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="css/animate.css" rel="stylesheet" />
+
+       <link href="js/fullcalendar.min.css" rel="stylesheet">
+
         <!-- Squad theme CSS -->
         <link href="css/style.css" rel="stylesheet">
         <link href="color/default.css" rel="stylesheet">
@@ -22,9 +25,9 @@
 
    	<body>
       <?php session_start(); ?>
-      <div class="wrapper">
 
-   	<nav class="navbar navbar-custom navbar-fixed-top top-nav" role="navigation">
+
+   	    <nav class="navbar navbar-custom navbar-fixed-top top-nav" role="navigation">
            <div class="container">
                <div class="navbar-header">
                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
@@ -64,7 +67,7 @@
                             echo "<b class='caret'></b></a>
                                 <ul class='dropdown-menu'>
                                   <li><a href='userhome.php'>User Home</a></li>
-                                  <li><a href='#'>Account Management</a></li>
+                                  <li><a href='account.php'>Account Management</a></li>
                                   <li><a href='php/logout.php'>Logout</a></li>
                                 </ul>";
                           }
@@ -84,31 +87,33 @@
            <!-- /.container -->
         </nav>
 
-
-	 <section class="home-section1 text-center">
+      <div class="wrapper">
+	    <section class="home-section1 text-center">
             <div class='section-heading'>
                 <h1>Your Favorites</h1>
                 
             </div>
         </section>
 
-	<div class='container' id='results'>	
-		<div class='row'>
-			<div class='col-sm-6' id='venue-results'>
-			<?php
-				//add php to query for user favs
-        include 'php/userqueries.php';
-        get_query();
-			?>
-			</div>
-			<div class='col-sm-6'>
-				<div class>
-					<img alt='Placeholder for Calender' height='500' width='500'>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+        <div class='container' id='results'>
+            <div class='row'>
+                <div class='col-sm-6' id='venue-results'>
+                    <div id='user-venue-results'>
+                        <?php
+                        //add php to query for user favs
+                        include 'php/userqueries.php';
+                        get_query();
+                        ?>
+                    </div>
+                </div>
+
+                <div class='col-sm-6' id='calendar_container'>
+                    <div id="calendar"></div>
+                </div>
+
+            </div>
+        </div>
+      </div>
 
 		<footer>
             <div class="container">
@@ -120,6 +125,9 @@
             </div>
         </footer>
 
+
+        <script src="js/moment.min.js"></script>
+
         <!-- Core JavaScript Files -->
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
@@ -128,5 +136,14 @@
         <script src="js/wow.min.js"></script>
         <!-- Custom Theme JavaScript -->
         <script src="js/custom.js"></script>
+
+        <!-- calender plugin -->
+
+        <script src="js/fullcalendar.min.js"></script>
+
+        <script src="js/userhome_calender.js"></script>
+
 	</body>
+
+
 </html>
