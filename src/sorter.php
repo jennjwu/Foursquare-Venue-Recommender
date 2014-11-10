@@ -166,7 +166,7 @@
 
 
       <!--FourSquare-->
-      <script src="js/fourSquareAPI.js"></script>
+      <script src="js/mapAPI.js"></script>
 
       <!--Google Map-->
       <script src="js/gmaps.js"></script>

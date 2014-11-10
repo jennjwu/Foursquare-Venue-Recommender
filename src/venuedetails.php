@@ -84,18 +84,113 @@
         <!-- /.container -->
     </nav>
 
+    <?php
+    if (isset($_GET['FS_ID'])) {
+        $FS_ID = $_GET['FS_ID'];
+        echo "<h4 id='FS_ID'>$FS_ID</h4>";
+    }
+    ?>
 
     <section class="home-section1 text-center">
         <div class='section-heading'>
-            <h1>Venue Details</h1>
-            <?php
-            if (isset($_GET['FS_ID'])) {
-                $FS_ID = $_GET['FS_ID'];
-                echo "<h4 id='FS_ID'>$FS_ID</h4>";
-            }
-            ?>
+            <h1 class="venuemeta">
+                <span id="venue_name" class="pull-left"></span>
+                <span id="rating">
+                    Rating: <span id="venue_rating"></span>
+                </span>
+                <span id="price">
+                    Price: <span id="venue_price"></span>
+                </span>
+            </h1>
+            <div id="category" >
+                <div class="col-sm-10" id="venue_category">
+                </div>
+            </div>
+
         </div>
     </section>
+
+    <div class="container">
+        <br/>
+        <div class="row">
+            <div id="venue_meta" class="col-sm-7 bg-gray venuemeta ">
+                <div >
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <strong>Address: </strong>
+                        </div>
+                        <div class="col-sm-10" id="venue_address">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="contact" >
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <strong>Contact: </strong>
+                        </div>
+                        <div class="col-sm-10" id="venue_contact">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="url">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <strong>URL: </strong>
+                        </div>
+                        <div class="col-sm-10" id="venue_url">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="venue_amenities" class="col-sm-4 bg-gray venuemeta">
+
+                <div id="isopen" >
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <strong>IsOpen: </strong>
+                        </div>
+                        <div class="col-sm-8" id="venue_isopen">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="likes" >
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <strong>Likes: </strong>
+                        </div>
+                        <div class="col-sm-8" id="venue_likes">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="checkins" >
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <strong>CheckIns: </strong>
+                        </div>
+                        <div class="col-sm-8" id="venue_checkins">
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <br/>
+        <h4>Tips From Others</h4>
+        <div id="venue_tips" >
+        </div>
+    </div>
 
 
 
@@ -121,5 +216,11 @@
 <script src="js/wow.min.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="js/custom.js"></script>
+<!--FourSquare-->
+<script src="js/fourSquareAPI.js"></script>
+
+<script>
+
+</script>
 </body>
 </html>

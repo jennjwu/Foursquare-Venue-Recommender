@@ -851,3 +851,42 @@ Parallax
 #FS_ID {
     display: none;
 }
+
+.venuemeta {
+    padding: 20px;
+    margin: 5px;
+
+}
+
+#venue_name{
+    text-align: left;
+    margin-left: 120px;
+    color:#67b0d1;
+}
+
+#rating, #price{
+    font-size: 30px;
+    text-transform: none;
+}
+#rating {
+    color: firebrick;
+}
+
+#price {
+    color: forestgreen;
+}
+
+#venue_meta,
+#venue_amenities{
+    font-size: 20px;
+}
+
+#category{
+    text-align: left;
+    margin-left: 120px;
+    font-size: 20px;
+}
+
+.label{
+    margin-right: 5px;
+}
