@@ -16,7 +16,7 @@
     function request(venueid) {
 
         var baseurl = "https://api.foursquare.com/v2/venues/";
-        var version = "20140930";
+        var version = "20141109";
         var token_verison = "?oauth_token=" + oauth_token + "&v=" + version;
         var id_secret_version = "&client_id=" + client_id + "&client_secret=" + client_secret + "&v=" + version;
 
@@ -36,6 +36,19 @@
             $("#venue_rating").html(rating);
 
             var location = venueinfo.location;
+
+            //map
+            var lat = location.lat;
+            var lng = location.lng;
+
+            var map2 = new GMaps({
+                div: '#venue_map',
+                zoom: 16,
+                lat: lat,
+                lng: lng
+            });
+
+            map2.addMarker({lat:lat, lng:lng});
 
             var addhtml = location.address + ", " + location.city+ ", " + location.state+ " " + location.postalCode + ", " + location.country;
             $("#venue_address").html(addhtml);
@@ -94,7 +107,24 @@
             }
 
             //venue tips
+            var tips = venueinfo.tips.groups[0].items;
 
+            tips.sort(timeCompare);
+
+            $.each(tips, function (index, item) {
+                //console.log(item);
+
+                var createdAt = new Date(item.createdAt*1000);
+                var date = createdAt.getMonth()+1 + "/" + createdAt.getDate() + "/"+ createdAt.getFullYear();
+
+                console.log(date);
+                var itemhtml = "<div class='well' >";
+                itemhtml += "<p class='tiptext'>" + item.text + "</p>";
+                itemhtml += "<p class='author'>" + item.user.firstName + " " + item.user.lastName + " - " + date+ "</p> </div>";
+
+
+                $("#venue_tips").append(itemhtml);
+            })
 
 
 
@@ -151,3 +181,9 @@
         });*/
     }
 })(jQuery);
+
+var timeCompare = function(a, b){
+    var firstArr = a['createdAt'];
+    var secondArr = b['createdAt'];
+    return secondArr - firstArr; //big to small
+};

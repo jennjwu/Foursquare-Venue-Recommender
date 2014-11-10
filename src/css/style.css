@@ -886,6 +886,7 @@ Parallax
 #venue_meta,
 #venue_amenities{
     font-size: 20px;
+    height:300px;
 }
 
 #category{
@@ -896,4 +897,29 @@ Parallax
 
 .label{
     margin-right: 5px;
+}
+
+#tip_count {
+    color: green;
+}
+
+.tiptext {
+    font-size: 20px;
+    font-weight: bold;
+    color:#67b0d1 ;
+
+}
+.author {
+    text-align: right;
+    font-weight: bold;
+}
+
+#venue_map {
+    height: 300px;
+    width: 100%;
+}
+
+
+.alien_right {
+    text-align: right;
 }

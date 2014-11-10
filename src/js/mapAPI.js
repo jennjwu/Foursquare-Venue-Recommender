@@ -12,8 +12,11 @@ $(document).ready(function () {
         lng: -118.408075
     });
 
+
+
     var hidden_lat = $("#venue-results").find(".lat");
     var hidden_long = $("#venue-results").find(".long");
+    var category = $(".category").html();
     console.log(hidden_lat);
     console.log(hidden_long);
 
@@ -22,7 +25,11 @@ $(document).ready(function () {
         var lat = $(hidden_lat[i]).html();
         var long = $(hidden_long[i]).html();
         console.log(lat, long);
-        map.addMarker({lat: lat, lng: long});
+        map.addMarker({
+            lat: lat,
+            lng: long
+            //icon: "/img/icons/mappin/"+category.trim()+".jpg"
+        });
     }
     map.fitZoom();
 });
