@@ -120,7 +120,15 @@
                 console.log(date);
                 var itemhtml = "<div class='well' >";
                 itemhtml += "<p class='tiptext'>" + item.text + "</p>";
-                itemhtml += "<p class='author'>" + item.user.firstName + " " + item.user.lastName + " - " + date+ "</p> </div>";
+                itemhtml += "<p class='author'>" ;
+                if(item.user.firstName) {
+                    itemhtml+= item.user.firstName + " ";
+                }
+                if(item.user.lastName){
+                    itemhtml += item.user.lastName;
+                }
+
+                itemhtml += " - " + date+ "</p> </div>";
 
 
                 $("#venue_tips").append(itemhtml);
