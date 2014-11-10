@@ -60,4 +60,44 @@
 		}
 		mysqli_close($con);//close connection to db
 	}//end function get_query()
+
+
+
+	function get_user() {
+		//database connection
+		include 'connect.php';
+		$user_id = $_SESSION['user_id'];
+
+		$sql = "SELECT * FROM User join accounts on user_id=login_id where user_id=$user_id;";
+		$results = mysqli_query($con, $sql);
+		
+		if(mysqli_num_rows($results) == 1) {
+			$row = mysqli_fetch_assoc($results);
+			$name = $row["Name"];
+			$zipcode = $row["ZipCode"];
+			$email = $row["email"];
+			$password = $row["password"];
+
+			echo "<div class='row'>
+				<div class='col-sm-3'><h4>Name</h4></div>
+				<div class='col-sm-9'><h4 class='answer'>$name 
+					<a href='#name'><i class='fa fa-pencil'></i></a>
+				</h4></div></div>";
+			echo "<div class='row'>
+				<div class='col-sm-3'><h4>Zipcode</h4></div>
+				<div class='col-sm-9'><h4 class='answer'>$zipcode
+					<a href='#zipcode'><i class='fa fa-pencil'></i></a>
+				</h4></div></div>";
+			echo "<div class='row'>
+				<div class='col-sm-3'><h4>Email</h4></div>
+				<div class='col-sm-9'><h4 class='answer'>$email
+					<a href='#email'><i class='fa fa-pencil'></i></a>
+				</h4></div></div>";
+		}
+		else {
+			echo "<p>Error with database</p>";
+		}
+		mysqli_close($con);//close connection to db
+	}//end function get_user()
+	
 ?>
