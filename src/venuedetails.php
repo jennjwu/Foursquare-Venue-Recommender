@@ -70,7 +70,7 @@
                                 echo "<b class='caret'></b></a>
                                 <ul class='dropdown-menu'>
                                   <li><a href='userhome.php'>User Home</a></li>
-                                  <li><a href='#'>Account Management</a></li>
+                                  <li><a href='account.php'>Account Management</a></li>
                                   <li><a href='php/logout.php'>Logout</a></li>
                                 </ul>";
                             }
@@ -242,20 +242,23 @@
 
                 <!-- Save model form
                 ====================================================================== -->
-                <form class="form-horizontal" action="" method="post">
+                <form class="form-horizontal" action="php/add.php" method="post">
                     <div class='form-group text-center'>
 
+                        <?php echo "<input type='hidden' name='FS_ID' value='"
+                            . $FS_ID ."'>";?>
+
                         <label class="tiptext" for="visit_date">Pick A Visit Date: </label>
-                        <input id="visit_date" type="date" name="date" required>
+                        <input id="date_visit" type="date" name="date_visit" required>
 
                     </div>
+
 
                     <div class="form-group text-center">
                         <button type="submit" class="btn btn-default btn-success btn-lg">GO FourU</button>
                     </div>
 
                 </form>
-
 
             </div><!-- /. modal-body -->
         </div><!-- /.modal-content -->
