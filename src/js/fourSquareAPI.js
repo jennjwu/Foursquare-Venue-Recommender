@@ -87,14 +87,14 @@
             if(venueinfo.popular){
                 if(venueinfo.popular.isOpen == true)
                     $("#venue_isopen").html("<strong style='color: green'>" + venueinfo.popular.status +"</strong>");
-                else $("#venue_isopen").html("<strong style='color: orangered'>" + venueinfo.popular.status +"</strong>");
+                else $("#venue_isopen").html("<strong style='color: orangered'>Closed</strong>");
 
             } else {
                 $("#isopen").remove();
             }
 
             //venue tips
-            
+
 
 
 
