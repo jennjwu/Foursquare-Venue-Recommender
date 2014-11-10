@@ -93,39 +93,24 @@
 
 	 <div class="container">
           <div class="row">
-              <div class="col-md-6 col-md-offset-3">
+              <div class="col-md-6 col-md-offset-3 user-info">
                   <?php
                     include "php/userqueries.php";
                     get_user();
-                    //include "php/signup.php";
-                    /*if ($pw_mismatch) {
-                        echo "<h5 class='text-danger text-center'>Your passwords do not match.<br>
-                        Please try again.</h5>";
-                    }
-                    if ($existing) {
-                        echo "<h5 class='text-danger text-center'>Your email already exists in FourU.<br>
-                        Do you want to <a href='loginpage.php'>login</a>?</h5>";
-                    }*/
                   ?>
-                  <form class='form-horizontal' role='form' action='account.php' method='post'>
+              </div>
+              <div class="col-md-12 error">
                   <?php
-                    echo "<div class='form-group'>
-                            <input type='text' class='form-control input-lg' name='user_name' 
-                                placeholder='New Name' id='name'>
-                          </div>
-                          <div class='form-group'>
-                              <input type='number' class='form-control input-lg' name='zipcode' 
-                                placeholder='New Zipcode' id='zipcode'>
-                          </div>
-                          <div class='form-group'>
-                              <input type='email' class='form-control input-lg' name='email'
-                                  placeholder='New Email' id='email'>
-                          </div>
-                          <div class='form-group text-center'>
-                              <button type='submit' class='btn btn-default btn-success btn-lg'>Update</button>
-                          </div>
-                      </form>";
+                    if (isset($_GET['error'])){
+                        $error = $_GET['error'];
+                        if ($error == 'pw') {
+                            echo "<h4 class='text-danger text-center'>Your old password was incorrect.<br>Please <a href='account.php'>reload and try again</a>.</h4>";
+                        }
+                    }
                   ?>
+              </div>
+              <div class="col-md-6 col-md-offset-3">
+                  <p>Done? Go back to <a href="userhome.php">User Home</a></p>
               </div>
           </div>
       </div>
@@ -149,5 +134,7 @@
         <script src="js/wow.min.js"></script>
         <!-- Custom Theme JavaScript -->
         <script src="js/custom.js"></script>
+        <!-- For user management-->
+        <script src="js/user.js"></script>
 	</body>
 </html>
