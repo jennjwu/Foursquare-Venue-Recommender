@@ -69,8 +69,6 @@
 		mysqli_close($con);//close connection to db
 	}//end function get_query()
 
-
-
 	function get_user() {
 		//database connection
 		include 'connect.php';
@@ -89,23 +87,29 @@
 			echo "<div class='row'>
 				<div class='col-sm-3'><h4>Name</h4></div>
 				<div class='col-sm-9'><h4 class='answer'>$name 
-					<a href='#name'><i class='fa fa-pencil'></i></a>
+					<i class='fa fa-pencil name'></i></a>
 				</h4></div></div>";
 			echo "<div class='row'>
 				<div class='col-sm-3'><h4>Zipcode</h4></div>
 				<div class='col-sm-9'><h4 class='answer'>$zipcode
-					<a href='#zipcode'><i class='fa fa-pencil'></i></a>
+					<i class='fa fa-pencil zipcode'></i></a>
 				</h4></div></div>";
 			echo "<div class='row'>
 				<div class='col-sm-3'><h4>Email</h4></div>
 				<div class='col-sm-9'><h4 class='answer'>$email
-					<a href='#email'><i class='fa fa-pencil'></i></a>
+					<i class='fa fa-pencil email'></i></a>
 				</h4></div></div>";
+			echo "<div class='row'>
+				<div class='col-sm-3'><h4>Password</h4></div>
+				<div class='col-sm-9'><h4 class='answer'>Change Password
+					<i class='fa fa-pencil password'></i>
+				</h4></div></div>";
+			
 		}
 		else {
 			echo "<p>Error with database</p>";
 		}
 		mysqli_close($con);//close connection to db
 	}//end function get_user()
-	
+
 ?>
