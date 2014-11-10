@@ -21,6 +21,13 @@ div#venue-results .row-result:nth-of-type(odd) i:hover{
     color:#176e61;
 }
 
+/* For Acct page*/
+h4.answer {
+    text-transform: none;
+    font-family: 'Lato',sans-serif;
+    font-weight: initial;
+}
+
 body {
     width: 100%;
     height: 100%;

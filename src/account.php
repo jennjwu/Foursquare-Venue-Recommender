@@ -2,13 +2,13 @@
 <html>
    <head>
    <!-- 
-   	Venue Recommender User Home Page
+   	Venue Recommender User Acct Mgmt Page
    	Home html page for app
    	Team 9, CMPE 226, SJSU, Fall 2014
    	Xiaoli Jiang, Jennifer Wu
     -->
 	<meta charset="UTF-8" />
-	<title>U and FourU</title>
+	<title>Manage U</title>
 	        <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
@@ -87,28 +87,49 @@
 
 	 <section class="home-section1 text-center">
             <div class='section-heading'>
-                <h1>Your Favorites</h1>
-                
+                <h1>Manage Your Info</h1>
             </div>
         </section>
 
-	<div class='container' id='results'>	
-		<div class='row'>
-			<div class='col-sm-6' id='venue-results'>
-			<?php
-				//add php to query for user favs
-        include 'php/userqueries.php';
-        get_query();
-			?>
-			</div>
-			<div class='col-sm-6'>
-				<div class>
-					<img alt='Placeholder for Calender' height='500' width='500'>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+	 <div class="container">
+          <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                  <?php
+                    include "php/userqueries.php";
+                    get_user();
+                    //include "php/signup.php";
+                    /*if ($pw_mismatch) {
+                        echo "<h5 class='text-danger text-center'>Your passwords do not match.<br>
+                        Please try again.</h5>";
+                    }
+                    if ($existing) {
+                        echo "<h5 class='text-danger text-center'>Your email already exists in FourU.<br>
+                        Do you want to <a href='loginpage.php'>login</a>?</h5>";
+                    }*/
+                  ?>
+                  <form class='form-horizontal' role='form' action='account.php' method='post'>
+                  <?php
+                    echo "<div class='form-group'>
+                            <input type='text' class='form-control input-lg' name='user_name' 
+                                placeholder='New Name' id='name'>
+                          </div>
+                          <div class='form-group'>
+                              <input type='number' class='form-control input-lg' name='zipcode' 
+                                placeholder='New Zipcode' id='zipcode'>
+                          </div>
+                          <div class='form-group'>
+                              <input type='email' class='form-control input-lg' name='email'
+                                  placeholder='New Email' id='email'>
+                          </div>
+                          <div class='form-group text-center'>
+                              <button type='submit' class='btn btn-default btn-success btn-lg'>Update</button>
+                          </div>
+                      </form>";
+                  ?>
+              </div>
+          </div>
+      </div>
+    </div><!--end wrapper-->
 
 		<footer>
             <div class="container">

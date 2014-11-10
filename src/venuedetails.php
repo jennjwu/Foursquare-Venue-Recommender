@@ -64,7 +64,7 @@
                                 echo "<b class='caret'></b></a>
                                 <ul class='dropdown-menu'>
                                   <li><a href='userhome.php'>User Home</a></li>
-                                  <li><a href='#'>Account Management</a></li>
+                                  <li><a href='account.php'>Account Management</a></li>
                                   <li><a href='php/logout.php'>Logout</a></li>
                                 </ul>";
                             }
@@ -183,19 +183,36 @@
         </div>
     </div>
 
-
-
     <div class="container">
         <br/>
-        <h4>Tips From Others</h4>
-        <div id="venue_tips" >
+        <div class='row'>
+            <div class='col-sm-7 bg-gray venuemeta'>
+                <h4>Tips From Others</h4>
+                <div id="venue_tips" >
+                </div>
+            </div>
+            <div id="add_to_fav" class="col-sm-4 bg-gray venuemeta ">
+                <div class='row'>
+                    <div class='col-sm-12'>
+                        <h4>Add to Favs For Date:</h4>
+                        <form class='form-horizontal' role='form' action='php/add.php' method='post'>
+                            <div class='form-group'>
+                                <?php echo "<input type='hidden' name='FS_ID' value='"
+                                    . $FS_ID ."'>";?>
+                            </div>
+                            <div class='form-group col-sm-10'>
+                                <input type='date' class='form-control input-lg' name='date_visit'
+                                    placeholder='mm/dd/yyyy' id='date_visit'>
+                            </div>
+                            <div class='form-group col-sm-2'>
+                              <button type='submit' class='btn btn-info btn-lg'>Add!</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-
-
-
-
 </div>
 
 <footer>
