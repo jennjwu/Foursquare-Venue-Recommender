@@ -102,7 +102,7 @@
                 if (isset($_GET['category'])) {
                     $category = $_GET['category'];
                     $category = preg_replace('/_/', ' ', $category);
-                    echo "<h4>$category</h4>";
+                    echo "<h4 class='category'>$category</h4>";
                 }
                 ?>
             </div>

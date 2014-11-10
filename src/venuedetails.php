@@ -18,6 +18,12 @@
     <!-- Squad theme CSS -->
     <link href="css/style.css" rel="stylesheet">
     <link href="color/default.css" rel="stylesheet">
+
+    <!-- google map -->
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT32xVCkqxlZQz5DQly-1-6j7RlsouvM8">
+    </script>
+
 </head>
 
 <body>
@@ -91,21 +97,32 @@
     }
     ?>
 
+    <!-- venue title info --->
     <section class="home-section1 text-center">
         <div class='section-heading'>
-            <h1 class="venuemeta">
-                <span id="venue_name" class="pull-left"></span>
-                <span id="rating">
-                    Rating: <span id="venue_rating"></span>
-                </span>
-                <span id="price">
-                    Price: <span id="venue_price"></span>
-                </span>
-            </h1>
+            <div class="row">
+                <h1 class="venuemeta">
+                    <span id="venue_name" class="pull-left"></span>
+                    <span id="rating">
+                        Rating: <span id="venue_rating"></span>
+                    </span>
+                    <span id="price">
+                        Price: <span id="venue_price"></span>
+                    </span>
+
+                </h1>
+                <div class="alien_right col-sm-10">
+                    <button id="save_venue" class="btn btn-lg btn-warning" data-toggle="modal" data-backdrop="static" data-target="#saveModal">Save FourU</button>
+                </div>
+
+            </div>
+
+
             <div id="category" >
                 <div class="col-sm-10" id="venue_category">
                 </div>
             </div>
+
 
         </div>
     </section>
@@ -113,6 +130,8 @@
     <div class="container">
         <br/>
         <div class="row">
+
+            <!-- venue meta info --->
             <div id="venue_meta" class="col-sm-7 bg-gray venuemeta ">
                 <div >
                     <div class="row">
@@ -144,13 +163,11 @@
                     </div>
                 </div>
 
-            </div>
-
-            <div id="venue_amenities" class="col-sm-4 bg-gray venuemeta">
+                <br/>
 
                 <div id="isopen" >
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-2">
                             <strong>IsOpen: </strong>
                         </div>
                         <div class="col-sm-8" id="venue_isopen">
@@ -160,7 +177,7 @@
 
                 <div id="likes" >
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-2">
                             <strong>Likes: </strong>
                         </div>
                         <div class="col-sm-8" id="venue_likes">
@@ -170,7 +187,7 @@
 
                 <div id="checkins" >
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-2">
                             <strong>CheckIns: </strong>
                         </div>
                         <div class="col-sm-8" id="venue_checkins">
@@ -178,23 +195,28 @@
                     </div>
                 </div>
 
-
             </div>
-        </div>
-    </div>
 
+            <!-- venue map  --->
+            <div class="col-sm-4">
+                <div id="venue_map" >
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
 
 
     <div class="container">
         <br/>
+        <br/>
         <h4>Tips From Others</h4>
-        <div id="venue_tips" >
+        <div id="venue_tips" class="col-sm-11">
         </div>
     </div>
-
-
-
-
 
 </div>
 
@@ -208,6 +230,38 @@
     </div>
 </footer>
 
+<!-- save modal -->
+<div class="modal fade" id="saveModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Save Venue For U</h4>
+            </div>
+            <div class="modal-body">
+
+                <!-- Save model form
+                ====================================================================== -->
+                <form class="form-horizontal" action="" method="post">
+                    <div class='form-group text-center'>
+
+                        <label class="tiptext" for="visit_date">Pick A Visit Date: </label>
+                        <input id="visit_date" type="date" name="date" required>
+
+                    </div>
+
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-default btn-success btn-lg">GO FourU</button>
+                    </div>
+
+                </form>
+
+
+            </div><!-- /. modal-body -->
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <!-- Core JavaScript Files -->
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -219,8 +273,8 @@
 <!--FourSquare-->
 <script src="js/fourSquareAPI.js"></script>
 
-<script>
+<!--Google Map-->
+<script src="js/gmaps.js"></script>
 
-</script>
 </body>
 </html>
