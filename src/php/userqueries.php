@@ -19,14 +19,15 @@
 						<div class=''>
 							<div class='row'>";
 				$v_id = $i['Venue_ID'];
+                $v_FS_ID = $i['FS_ID'];
 				$u_date = $i['Date_Visiting'];
 				$v_name = $i['Name'];
 				$v_add = $i['Address'];
 				$v_zip = $i['ZipCode'];
 				$v_type = $i['Venue_Type'];
-				echo "<div class='col-sm-12 answer'><a href='#'><h4>$v_name</a>";
+				echo "<div class='col-sm-12 answer'><a href='venuedetails.php?FS_ID=$v_FS_ID'><h4><span class='v_name'>$v_name</span></a>";
 				if ($u_date != null) {
-					echo "<br>Date: $u_date</h4></div>";
+					echo "<br>Date: <span class='u_date'>$u_date</span></h4></div>";
 				}
 				else {
 					echo "</h4></div>";
@@ -57,6 +58,13 @@
 		else {
 			echo "<div class='row bg-info row-result'>No favorite FourU Venues yet!
 					</div>";
+            /*echo "<div class='col-sm-12 answer'><a href=''><h4><span class='v_name'>Test Resutrant</span></a>";
+            echo "<br><span class='u_date'>2014-10-20</span></h4></div>";
+            echo "<div class='col-sm-12 answer'><a href=''><h4><span class='v_name'>Test Resutrant2</span></a>";
+            echo "<br><span class='u_date'>2014-10-25</span></h4></div>";*/
+
+            //test data
+
 		}
 		mysqli_close($con);//close connection to db
 	}//end function get_query()

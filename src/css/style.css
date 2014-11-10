@@ -923,3 +923,27 @@ Parallax
 .alien_right {
     text-align: right;
 }
+
+
+/* For Acct page*/
+h4.answer {
+    text-transform: none;
+    font-family: 'Lato',sans-serif;
+    font-weight: initial;
+}
+
+
+/* user home calender*/
+#calendar {
+    max-width: 900px;
+    width: 100%;
+    hight: 300px;
+    margin: 0 auto;
+}
+
+/*#calendar_container {
+    margin: 40px 10px;
+    padding: 0;
+    font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+    font-size: 14px;
+}*/
