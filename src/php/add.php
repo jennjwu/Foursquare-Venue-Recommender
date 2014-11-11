@@ -31,7 +31,7 @@
         $results = mysqli_query($con,$sql);
         if (mysqli_num_rows($results) > 0) {
             //update instead of insert
-            $sql = "Update User_Favs set date_visiting='$date_visit' where user_id=$user_id and Venue_ID=$venue_id;";
+            $sql = "Update User_Favs set date_visiting=date('".$date_visit."') where user_id=$user_id and Venue_ID=$venue_id;";
 			if (!mysqli_query($con, $sql)) {
 	            echo "<p class=text-center text-danger'>System Error</p>";
 	        }
@@ -41,7 +41,7 @@
 
         }
         else {
-            $sql = "INSERT into User_Favs set user_id=$user_id, Venue_ID=$venue_id, date_visiting='$date_visit'";
+            $sql = "INSERT into User_Favs set user_id=$user_id, Venue_ID=$venue_id, date_visiting=date('".$date_visit."')";
 			if (!mysqli_query($con, $sql)) {
 	            echo "<p class=text-center text-danger'>System Error</p>";
 	        }

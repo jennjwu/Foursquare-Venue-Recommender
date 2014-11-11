@@ -134,7 +134,7 @@ CREATE TABLE `Accounts` (
   `last_login` datetime NOT NULL,
   PRIMARY KEY (`login_id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1001 DEFAULT CHARSET=utf8;
 
 
 
