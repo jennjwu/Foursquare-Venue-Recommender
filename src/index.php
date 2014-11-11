@@ -282,11 +282,11 @@
 				<div class="wow fadeInLeft" data-wow-delay="0.2s">
                 <div class="service-box">
 					<div class="service-icon">
-						<img src="img/icons/service-icon-2.png" alt="" />
+						<img src="img/hotplaces/b2_coffee_1.jpg" width="220" alt="" />
 					</div>
 					<div class="service-desc">
-						<h5>Venue 1</h5>
-						<p>Nice place to have lunch.</p>
+						<h5>B2 Coffee</h5>
+						<p>Fantastic artisan coffee shop</p>
 					</div>
                 </div>
 				</div>
@@ -295,11 +295,11 @@
 				<div class="wow fadeInUp" data-wow-delay="0.2s">
                 <div class="service-box">
 					<div class="service-icon">
-						<img src="img/icons/service-icon-2.png" alt="" />
+						<img src="img/hotplaces/coffee_1.jpeg"  width="220" alt="" />
 					</div>
 					<div class="service-desc">
-						<h5>Venue 2 </h5>
-						<p>Nice place to have dinner.</p>
+						<h5>Philz Coffee</h5>
+						<p>The Mint Mojito Iced Coffee is the best thing ev-er!</p>
 					</div>
                 </div>
 				</div>
@@ -308,11 +308,11 @@
 				<div class="wow fadeInUp" data-wow-delay="0.2s">
                 <div class="service-box">
 					<div class="service-icon">
-						<img src="img/icons/service-icon-2.png" alt="" />
+						<img src="img/hotplaces/henry's_hi-life.jpg"  width="220" alt="" />
 					</div>
 					<div class="service-desc">
-						<h5>Venue 3</h5>
-						<p>Nice place to have lunch.</p>
+						<h5>Henry's Hi-Life</h5>
+						<p>Get the ribs!!</p>
 					</div>
                 </div>
 				</div>
@@ -321,11 +321,11 @@
 				<div class="wow fadeInRight" data-wow-delay="0.2s">
                 <div class="service-box">
 					<div class="service-icon">
-						<img src="img/icons/service-icon-2.png" alt="" />
+						<img src="img/hotplaces/pizza.jpeg" width="220" alt="" />
 					</div>
 					<div class="service-desc">
-						<h5>Venue 4</h5>
-						<p>Nice place to have lunch.</p>
+						<h5>A Slice of New York</h5>
+						<p>Cheese pizza slice is soo good. Best pizza in the bay area!</p>
 					</div>
                 </div>
 				</div>
