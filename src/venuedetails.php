@@ -97,7 +97,7 @@
     }
     ?>
 
-    <!-- venue title info --->
+    <!-- venue title info -->
     <section class="home-section1 text-center">
         <div class='section-heading'>
             <div class="row">
@@ -112,7 +112,12 @@
 
                 </h1>
                 <div class="alien_right col-sm-10">
-                    <button id="save_venue" class="btn btn-lg btn-warning" data-toggle="modal" data-backdrop="static" data-target="#saveModal">Save FourU</button>
+                    <?php 
+                        //check user logged in before showing 'add to favs' button
+                        if (isset($_SESSION['user_id'])){
+                            echo "<button id='save_venue' class='btn btn-lg btn-warning' data-toggle='modal' data-backdrop='static' data-target='#saveModal'>Save FourU</button>";
+                        }
+                    ?>
                 </div>
 
             </div>
@@ -131,7 +136,7 @@
         <br/>
         <div class="row">
 
-            <!-- venue meta info --->
+            <!-- venue meta info -->
             <div id="venue_meta" class="col-sm-7 bg-gray venuemeta ">
                 <div >
                     <div class="row">
@@ -197,7 +202,7 @@
 
             </div>
 
-            <!-- venue map  --->
+            <!-- venue map  -->
             <div class="col-sm-4">
                 <div id="venue_map" >
                 </div>
