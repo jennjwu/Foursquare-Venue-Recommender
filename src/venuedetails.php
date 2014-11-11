@@ -228,7 +228,7 @@
             </div>
         </div>
     </div>
-</footer>
+</footer>-->
 
 <!-- save modal -->
 <div class="modal fade" id="saveModal">
@@ -249,7 +249,7 @@
                             . $FS_ID ."'>";?>
 
                         <label class="tiptext" for="visit_date">Pick A Visit Date: </label>
-                        <input id="date_visit" type="date" name="date_visit" required>
+                        <input id="date_visit" type="date" name="date_visit" placeholder='yyyy-mm-dd' required>
 
                     </div>
 
