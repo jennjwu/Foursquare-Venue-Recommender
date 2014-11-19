@@ -49,10 +49,9 @@ DROP TABLE IF EXISTS `FS_Recommender`.`Category` ;
 CREATE TABLE IF NOT EXISTS `FS_Recommender`.`Category` (
   `Category_ID` INT NOT NULL,
   `Criteria` VARCHAR(45) NULL,
-  `Description` VARCHAR(45) NULL,
+  `Description` TEXT NULL,
   PRIMARY KEY (`Category_ID`))
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `FS_Recommender`.`Venue_Category`
@@ -73,8 +72,8 @@ CREATE TABLE IF NOT EXISTS `FS_Recommender`.`Venue_Category` (
   CONSTRAINT `fk_Venue_Category_Category1`
     FOREIGN KEY (`Category_ID`)
     REFERENCES `FS_Recommender`.`Category` (`Category_ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -93,7 +92,7 @@ CREATE TABLE `Amenities` (
   `Menus` varchar(45) DEFAULT NULL,
   `Events_Count` int(11) DEFAULT NULL,
   PRIMARY KEY (`Venue_ID`),
-  CONSTRAINT `fk_Amenities_Venue1` FOREIGN KEY (`Venue_ID`) REFERENCES `Venue` (`Venue_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_Amenities_Venue1` FOREIGN KEY (`Venue_ID`) REFERENCES `Venue` (`Venue_ID`) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
 
@@ -112,13 +111,13 @@ CREATE TABLE IF NOT EXISTS `FS_Recommender`.`User_Favs` (
   CONSTRAINT `fk_User_Favs_User1`
     FOREIGN KEY (`User_ID`)
     REFERENCES `FS_Recommender`.`User` (`User_ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_User_Favs_Venue1`
     FOREIGN KEY (`Venue_ID`)
     REFERENCES `FS_Recommender`.`Venue` (`Venue_ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -136,8 +135,6 @@ CREATE TABLE `Accounts` (
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1001 DEFAULT CHARSET=utf8;
 
-
-
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
@@ -145,8 +142,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 /*Inserts*/
-INSERT INTO `User` (`User_ID`, `Name`, `ZipCode`) VALUES ('1001', 'Jenn', '95192');
-INSERT INTO `User` (`User_ID`, `Name`, `ZipCode`) VALUES ('1002', 'Xiaoli', '95192');
+INSERT INTO `User` (`User_ID`, `Name`, `ZipCode`) VALUES (1001, 'Jenn', 95192);
+INSERT INTO `User` (`User_ID`, `Name`, `ZipCode`) VALUES (1002, 'Xiaoli', 95192);
 INSERT INTO `User` (`User_ID`,`Name`,`ZipCode`) VALUES (1003,'Bob',95113);
 
 
@@ -175,7 +172,8 @@ INSERT INTO `Venue` (`Venue_ID`,`FS_ID`,`Name`,`Address`,`ZipCode`,`Latitude`,`L
 INSERT INTO `Venue` (`Venue_ID`,`FS_ID`,`Name`,`Address`,`ZipCode`,`Latitude`,`Longitude`,`PhoneNumber`,`Venue_Type`,`CheckIns`,`Likes`,`Rating`,`Price`,`Website`) VALUES (9014,'4bae7821f964a52050b63be3','Quickly','140 Paseo de San Antonio',95112,'37.33382107797452','-121.88485085964203','(408) 292-6160','Cafe',3166,18,6.8,'$','http://quicklyusa.com');
 INSERT INTO `Venue` (`Venue_ID`,`FS_ID`,`Name`,`Address`,`ZipCode`,`Latitude`,`Longitude`,`PhoneNumber`,`Venue_Type`,`CheckIns`,`Likes`,`Rating`,`Price`,`Website`) VALUES (9015,'4a584ec8f964a52083b71fe3','Angelou\'s Cafe & Grill','21 N 2nd St',95113,'37.337037','-121.88987883','(408) 971-2287','Restaurant',908,19,8.1,'$','http://www.angelousmexicangrill.com');
 INSERT INTO `Venue` (`Venue_ID`,`FS_ID`,`Name`,`Address`,`ZipCode`,`Latitude`,`Longitude`,`PhoneNumber`,`Venue_Type`,`CheckIns`,`Likes`,`Rating`,`Price`,`Website`) VALUES (9016,'4be5fdd3d4f7c9b635422620','Starbucks','150 S 1st St',95113,'37.33347091457388','-121.88706495271596','(408) 293-9945','Coffee Shop',6970,45,6.9,'$$','http://www.starbucks.com');
-INSERT INTO `Venue` (`Venue_ID`,`FS_ID`,`Name`,`Address`,`ZipCode`,`Latitude`,`Longitude`,`PhoneNumber`,`Venue_Type`,`CheckIns`,`Likes`,`Rating`,`Price`,`Website`) VALUES (9017,'49e57056f964a520d1631fe3','Pizza My Heart','117 E San Carlos St',95112,'37.33265094','-121.88462022','(408) 280-0707','Pizza Place',3169,56,8.8,'$','http://pizzamyheart.com/Pizza_My_Heart_Home.html');
+INSERT INTO `Venue` (`Venue_ID`,`FS_ID`,`Name`,`Address`,`ZipCode`,`Latitude`,`Longitude`,`PhoneNumber`,`Venue_Type`,`CheckIns`,`Likes`,`Rating`,`Price`,`Website`) VALUES (9017,'4da11fd5573d1456209e137d','Pacific Catch','1875 S Bascom Ave, Ste 550',95008,'37.28954795913223','-121.9324755284666','(408) 879-9091','Seafood Restaurant',5147,88,8.2,'$$','http://www.pacificcatch.com');
+INSERT INTO `Venue` (`Venue_ID`,`FS_ID`,`Name`,`Address`,`ZipCode`,`Latitude`,`Longitude`,`PhoneNumber`,`Venue_Type`,`CheckIns`,`Likes`,`Rating`,`Price`,`Website`) VALUES (9018,'4a62a855f964a5206dc41fe3','En Japanese Tapas Restaurant','3450 El Camino Real',95051,'37.351961306788795','-121.99097262957382','(408) 246-0011','Japanese Restaurant',1695,31,8.8,'$$','http://ensantaclara.com');
 
 
 INSERT INTO `Amenities` (`Venue_ID`,`Reservations`,`Credit_Cards`,`Outdoor_Seating`,`Alcohol`,`Wifi`,`Menus`,`Events_Count`) VALUES (9001,'N','Y','Y','Y','Y','Happy Hour',0);
@@ -195,6 +193,7 @@ INSERT INTO `Amenities` (`Venue_ID`,`Reservations`,`Credit_Cards`,`Outdoor_Seati
 INSERT INTO `Amenities` (`Venue_ID`,`Reservations`,`Credit_Cards`,`Outdoor_Seating`,`Alcohol`,`Wifi`,`Menus`,`Events_Count`) VALUES (9015,'N','Y','Y','N','N','Lunch, Dinner',0);
 INSERT INTO `Amenities` (`Venue_ID`,`Reservations`,`Credit_Cards`,`Outdoor_Seating`,`Alcohol`,`Wifi`,`Menus`,`Events_Count`) VALUES (9016,'N','Y','Y','N','Y','Breakfast',0);
 INSERT INTO `Amenities` (`Venue_ID`,`Reservations`,`Credit_Cards`,`Outdoor_Seating`,`Alcohol`,`Wifi`,`Menus`,`Events_Count`) VALUES (9017,'Y','Y','Y','Y','N','Brunch, Lunch, Dinner',0);
+INSERT INTO `Amenities` (`Venue_ID`,`Reservations`,`Credit_Cards`,`Outdoor_Seating`,`Alcohol`,`Wifi`,`Menus`,`Events_Count`) VALUES (9018,'Y','Y','N','N','N','Lunch, Dinner',0);
 
 INSERT INTO `Venue_Category` (`Venue_ID`,`Category_ID`) VALUES (9001,3);
 INSERT INTO `Venue_Category` (`Venue_ID`,`Category_ID`) VALUES (9002,3);
